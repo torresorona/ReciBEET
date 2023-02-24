@@ -36,6 +36,13 @@ Recipe.init(
             default: 0,
         }
     }
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableNames: true,
+        underscored: true,
+        modelName: 'recipe',
+    }
 );
 
 module.exports = Recipe;
