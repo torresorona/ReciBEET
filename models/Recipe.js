@@ -35,7 +35,7 @@ Recipe.init(
             type: DataTypes.INTEGER,
             default: 0,
         }
-    }
+    },
     {
         sequelize,
         timestamps: false,
