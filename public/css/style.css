@@ -19,7 +19,7 @@ h2 {
 
 
 #field {
-    margin-bottom:20px;
+  margin-bottom: 20px;
 }
 
 .control-label {
@@ -34,4 +34,16 @@ h2 {
 footer {
   color: white;
 
+}
+
+/* added by Manny */
+marquee {
+  background-color: #358033;
+  color: white;
+  font-size: 15pt;
+}
+
+.navyHome {
+  background-image: url('../../assets/images/ReciBEETopa20.png');
+  background-size: contain;
 }
