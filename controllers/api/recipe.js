@@ -7,7 +7,7 @@ const withAuth = require('../../utils/auth');
 //THIS IS DIRECTLY PULLED FROM RAPIDAPI
 import axios from "axios";
 
-const options = {
+const optionsSearch = {
   method: 'GET',
   url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch',
   params: {
@@ -117,8 +117,12 @@ const options = {
   }
 };
 
+const optionsByIng =
+
 axios.request(options).then(function (response) {
 	console.log(response.data);
 }).catch(function (error) {
 	console.error(error);
 });
+
+
