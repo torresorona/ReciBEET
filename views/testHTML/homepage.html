@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ReciBEETs</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../public/css/style.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Golos+Text&display=swap');
+
+        body {
+            font-family: 'Golos Text', sans-serif;
+        }
+
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+            height: 100px;
+            background-color: #2e3192;
+        }
+
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {
+            height: 450px
+        }
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            padding-top: 20px;
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        marquee {
+            background-color: #358033;
+            color: white;
+            font-size: 15pt;
+        }
+
+        .bodysec {
+            background-image: url("./ReciBEETopa20.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 560px;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #990f3e;
+            color: white;
+            padding: 15px;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-black">
+        <div class="container-fluid">
+            <nav class="navbar">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="./images/recibeet2.png" alt="Logo" width="150" height="150"
+                            class="d-inline-block align-text-top">
+                    </a>
+                    <h1>ReciBEET</h1>
+                </div>
+            </nav>
+            <div class="navbar nav">
+                <a class="nav-link button" href="#">Home</a>
+                <a class="nav-link" href="#">My Recipes</a>
+                <a class="nav-link" href="#">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <div>
+        <marquee class="scroll-text">Joke of the Day <span class="glyphicon glyphicon-forward"></span> What do carrots
+            like to drink? <span class="glyphicon glyphicon-forward"></span> Root Beer! <span
+                class="glyphicon glyphicon-forward"></span> Daily Trivia <span
+                class="glyphicon glyphicon-forward"></span> Did you know Beets have from 100-200 calories? </marquee>
+    </div>
+
+    <div class="container-fluid text-center bodysec">
+        <div class="row content">
+            <div class="col-sm-2 sidenav">
+            </div>
+            <div class="col-sm-8 text-left">
+                <h1>Welcome</h1>
+                <p> On ReciBEET you can instantly view the Top Ten Recipes that all our members are craving! Want to
+                    make your own recipe?
+                    Or even better, want a random recipe after providing us some ingredients? All you have to do is Sign
+                    Up for an account
+                    and you will have access to your own profile, the recipe generator and even a place where you can
+                    put in your favorite
+                    recipes to preserve them forever.
+                </p>
+                <hr>
+                <h3>Top 10 Recipes</h3>
+                <p>Lorem ipsum...</p>
+            </div>
+            <div class="col-sm-2 sidenav">
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid text-center">
+        <p>Crafted for you by the "Still Hungry Team"</p>
+    </footer>
+
+</body>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
+</html>
