@@ -1,108 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 
 <head>
-    <title>ReciBEETs</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../../public/css/style.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Recibeet</title>
+    <link rel="stylesheet" href="../../public/css/reset.css">
+    <link rel="stylesheet" href="../../public/css/style.css" />
+    <!-- Jquery used for adding ingredients form -->
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- Bootstrap used for adding styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- Google Fonts used for adding styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Handlee&family=Hi+Melody&family=Mynerve&family=Tilt+Warp&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Handlee&family=Hi+Melody&family=Mynerve&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/cea2165e68.js" crossorigin="anonymous"></script>
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Golos+Text&display=swap');
-
-        body {
-            font-family: 'Golos Text', sans-serif;
-        }
-
-        /* Remove the navbar's default margin-bottom and rounded borders */
-        .navbar {
-            margin-bottom: 0;
-            border-radius: 0;
-            height: 100px;
-            background-color: #2e3192;
-        }
-
-        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-        .row.content {
-            height: 450px
-        }
-
-        /* Set gray background color and 100% height */
-        .sidenav {
-            padding-top: 20px;
-            background-color: #f1f1f1;
-            height: 100%;
-        }
-
-        marquee {
-            background-color: #358033;
-            color: white;
-            font-size: 15pt;
-        }
-
-        .bodysec {
-            background-image: url("./ReciBEETopa20.png");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: 560px;
-        }
-
-        /* Set black background color, white text and some padding */
-        footer {
-            background-color: #990f3e;
-            color: white;
-            padding: 15px;
-        }
-
-        /* On small screens, set height to 'auto' for sidenav and grid */
-        @media screen and (max-width: 767px) {
-            .sidenav {
-                height: auto;
-                padding: 15px;
-            }
-
-            .row.content {
-                height: auto;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-black">
+    <nav class="navbar navbar-expand-lg bg-black navyHome">
         <div class="container-fluid">
             <nav class="navbar">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">
-                        <img src="./images/recibeet2.png" alt="Logo" width="150" height="150"
+                        <img src="../../assets/images/ReciBEET2.png" alt="Logo" width="150" height="150"
                             class="d-inline-block align-text-top">
                     </a>
                     <h1>ReciBEET</h1>
                 </div>
             </nav>
+
             <div class="navbar nav">
                 <a class="nav-link button" href="#">Home</a>
-                <a class="nav-link" href="#">My Recipes</a>
                 <a class="nav-link" href="#">Login</a>
             </div>
+
         </div>
     </nav>
 
     <div>
-        <marquee class="scroll-text">Joke of the Day <span class="glyphicon glyphicon-forward"></span> What do carrots
-            like to drink? <span class="glyphicon glyphicon-forward"></span> Root Beer! <span
-                class="glyphicon glyphicon-forward"></span> Daily Trivia <span
-                class="glyphicon glyphicon-forward"></span> Did you know Beets have from 100-200 calories? </marquee>
+        <marquee class="scroll-text"><i class="fa-solid fa-utensils"></i> Joke of the Day <i
+                class="fa-solid fa-utensils"></i> What do carrots
+            like to drink? <i class="fa-solid fa-utensils"></i> Root Beer! <i class="fa-solid fa-utensils"></i> Daily
+            Trivia <i class="fa-solid fa-utensils"></i> Did you know Beets have from 100-200 calories? <i
+                class="fa-solid fa-utensils"></i></marquee>
     </div>
 
-    <div class="container-fluid text-center bodysec">
+    <div class="container-fluid text-center">
         <div class="row content">
-            <div class="col-sm-2 sidenav">
+            <div class="col-sm-2">
             </div>
             <div class="col-sm-8 text-left">
                 <h1>Welcome</h1>
@@ -112,21 +68,92 @@
                     Up for an account
                     and you will have access to your own profile, the recipe generator and even a place where you can
                     put in your favorite
-                    recipes to preserve them forever.
+                    recipes to preserve them forever. <br> Check out Today's Top Ten Recipes below!
                 </p>
                 <hr>
-                <h3>Top 10 Recipes</h3>
-                <p>Lorem ipsum...</p>
-            </div>
-            <div class="col-sm-2 sidenav">
+
+                <div class="container  col-8  mb-3">
+                    <h4 class="text-center mt-3">Top 10 Recipes</h4>
+                    <div>
+
+                        <div class="text-center card-deck">
+
+                            <div class="card border-info col-6 m-auto mt-2 " style="max-width: 20rem;">
+                                <h5 class="card-header">Recipe Name</h5>
+                                <div class="card-body text-secondary">
+                                    <p class="card-text">Brief description of recipe. Lorem Ipsum is simply dummy text
+                                        of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                                        standard dummy text ever since the 1500s, when an unknown printer took a galley
+                                        of type and scrambled it to make a type specimen book.</p>
+                                </div>
+                            </div>
+
+                            <div class="card border-info col-6 m-auto mt-2 " style="max-width: 20rem;">
+                                <h5 class="card-header">Recipe Name</h5>
+                                <div class="card-body text-secondary">
+                                    <p class="card-text">Brief description of recipe. Lorem Ipsum is simply dummy text
+                                        of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                                        standard dummy text ever since the 1500s, when an unknown printer took a galley
+                                        of type and scrambled it to make a type specimen book.</p>
+                                </div>
+                            </div>
+
+                            <div class="card border-info col-6 m-auto mt-2 " style="max-width: 20rem;">
+                                <h5 class="card-header">Recipe Name</h5>
+                                <div class="card-body text-secondary">
+                                    <p class="card-text">Brief description of recipe. Lorem Ipsum is simply dummy text
+                                        of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                                        standard dummy text ever since the 1500s, when an unknown printer took a galley
+                                        of type and scrambled it to make a type specimen book.</p>
+                                </div>
+                            </div>
+
+                            <div class="card border-info col-6 m-auto mt-2 " style="max-width: 20rem;">
+                                <h5 class="card-header">Recipe Name</h5>
+                                <div class="card-body text-secondary">
+                                    <p class="card-text">Brief description of recipe. Lorem Ipsum is simply dummy text
+                                        of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                                        standard dummy text ever since the 1500s, when an unknown printer took a galley
+                                        of type and scrambled it to make a type specimen book.</p>
+                                </div>
+                            </div>
+
+                            <div class="card border-info col-6 m-auto mt-2 " style="max-width: 20rem;">
+                                <h5 class="card-header">Recipe Name</h5>
+                                <div class="card-body text-secondary">
+                                    <p class="card-text">Brief description of recipe. Lorem Ipsum is simply dummy text
+                                        of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                                        standard dummy text ever since the 1500s, when an unknown printer took a galley
+                                        of type and scrambled it to make a type specimen book.</p>
+                                </div>
+                            </div>
+
+                            <div class="card border-info col-6 m-auto mt-2 " style="max-width: 20rem;">
+                                <h5 class="card-header">Recipe Name</h5>
+                                <div class="card-body text-secondary">
+                                    <p class="card-text">Brief description of recipe. Lorem Ipsum is simply dummy text
+                                        of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                                        standard dummy text ever since the 1500s, when an unknown printer took a galley
+                                        of type and scrambled it to make a type specimen book.</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
         </div>
-    </div>
 
-    <footer class="container-fluid text-center">
-        <p>Crafted for you by the "Still Hungry Team"</p>
-    </footer>
 
+        <!-- Footer section -->
+        <footer class="text-center p-3 m-0 bg-dark">
+            <div>
+                Created for you by a Team that is Still Hungry © 2023
+            </div>
+
+        </footer>
 </body>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
