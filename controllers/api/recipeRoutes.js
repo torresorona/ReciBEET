@@ -5,6 +5,7 @@
 const router = require('express').Router();
 const { Recipe } = require('../../models');
 const withAuth = require('../../utils/auth');
+const axios = require('axios');
 
 router.post('/', withAuth, async (req, res) => {
   try {
@@ -43,7 +44,6 @@ module.exports = router;
 
 //get recipes
 //THIS IS DIRECTLY PULLED FROM RAPIDAPI
-import axios from "axios";
 
 const options = {
   method: 'GET',
@@ -154,9 +154,3 @@ const options = {
     'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
   }
 };
-
-axios.request(options).then(function (response) {
-	console.log(response.data);
-}).catch(function (error) {
-	console.error(error);
-});
