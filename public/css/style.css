@@ -1,24 +1,37 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+/* HEX Codes
+#d01e5f 
+#990f3e
+#358033
+#2e3192 */
+
+* {
+  border-radius: 0
 }
 
-.no-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  color: #1b89bc;
-  text-decoration: none;
-  font-size: 100%;
+h1 {
+  font-family: 'Tilt Warp';
+  color: white;
 }
 
-.no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
+h2 {
+  font-family: 'Mynerve';
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+
+#field {
+    margin-bottom:20px;
+}
+
+.control-label {
+  color: #358033;
+}
+
+.card-deck {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+footer {
+  color: white;
+
 }
