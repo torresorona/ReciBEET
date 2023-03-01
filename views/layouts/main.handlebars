@@ -26,42 +26,13 @@
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <span role="img" aria-label="money">💸</span>
-        <a href="/">Fund My Project!</a>
-      </h1>
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
-    </header>
-    <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
-      {{{ body }}}
-    </main>
-
-  </div>
-
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-
-
+  {{{body}}}
 
   <!-- Footer section -->
   <footer class="text-center p-3 m-0 bg-dark">
     <div>
       Created for you by a team that is Still Hungry © 2023
     </div>
-
   </footer>
 </body>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
