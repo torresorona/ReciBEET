@@ -17,6 +17,10 @@ h2 {
   font-family: 'Mynerve';
 }
 
+h5 {
+  font-family: 'Tilt Warp';
+}
+
 
 #field {
   margin-bottom: 20px;
@@ -29,6 +33,15 @@ h2 {
 .card-deck {
   display: flex;
   flex-wrap: wrap;
+}
+
+.card-title{
+  font-family: 'Mynerve';
+  font-size: xx-large;
+}
+
+.headers {
+  color: #358033;
 }
 
 footer {
