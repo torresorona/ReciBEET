@@ -1,24 +1,77 @@
-<!-- Loop over each object in the projects array -->
-{{#each projects as |project| }}
-<div class="row mb-4 project">
-  <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/project/{{project.id}}">{{project.name}}</a>
-    </h2>
-    <p>
-      <span for="img" aria-label="money">💲</span>
-      <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount project.needed_funding}}</span>
-      needed!
-    </p>
-    <p>Created by {{project.user.name}} on {{format_date project.date_created}}</p>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-black navyHome">
+    <div class="container-fluid">
+      <nav class="navbar">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="../../assets/images/ReciBEET2.png" alt="Logo" width="150" height="150"
+              class="d-inline-block align-text-top">
+          </a>
+          <h1>ReciBEET</h1>
+        </div>
+      </nav>
+
+      <div class="navbar nav">
+        <a class="nav-link button" href="/">Home</a>
+
+        {{#if loggedIn}}
+        <a class="nav-link" href="/">Logout</a>
+        {{else}}
+        <a class="nav-link" href="/login">Login</a>
+        {{/if}}
+
+        <a class="nav-link button" href="/signup">Signup</a>
+      </div>
+
+    </div>
+  </nav>
+
+  <div>
+    <marquee class="scroll-text"><i class="fa-solid fa-utensils"></i> Joke of the Day <i
+        class="fa-solid fa-utensils"></i> What do carrots
+      like to drink? <i class="fa-solid fa-utensils"></i> Root Beer! <i class="fa-solid fa-utensils"></i> Daily
+      Trivia <i class="fa-solid fa-utensils"></i> Did you know Beets have from 100-200 calories? <i
+        class="fa-solid fa-utensils"></i></marquee>
   </div>
-  <div class="col-md-7">
-    <p>
-      {{project.description}}
-    </p>
-  </div>
-</div>
-{{/each}}
+
+  <div class="container-fluid text-center">
+    <div class="row content">
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-8 text-left">
+        <h1>Welcome</h1>
+        <p> On ReciBEET you can instantly view the Top Ten Recipes that all our members are craving! Want to
+          make your own recipe?
+          Or even better, want a random recipe after providing us some ingredients? All you have to do is Sign
+          Up for an account
+          and you will have access to your own profile, the recipe generator and even a place where you can
+          put in your favorite
+          recipes to preserve them forever. <br> <strong>Check out Today's Top Ten Recipes below!</strong>
+        </p>
+        <hr>
+
+        <div class="container  col-8  mb-3">
+          <h4 class="text-center mt-3">Top 10 Recipes</h4>
+          <div>
+
+            <div class="text-center card-deck">
+
+              {{#each recipes as |recipe|}}
+              {{> toprecipes recipe}}
+              {{/each}}
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+</body>
+
+{{#if loggedIn}}
+<script src="/js/logout.js"></script>
+{{/if}}
