@@ -19,10 +19,9 @@ Recipe.init(
             type: DataTypes.STRING(5000),
             allowNull: false,
         },
-        //example boolean for tags, may need to add more depending on what needs to be saved
-        isGlutenFree: {
-            type: DataTypes.BOOLEAN,
-            //leaving to allow null as default for now
+        igredients: {
+            type: DataTypes.STRING(5000),
+            allowNull: false,
         },
         user_id: {
             type: DataTypes.INTEGER,
