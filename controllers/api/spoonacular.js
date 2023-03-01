@@ -1,12 +1,11 @@
 const router = require('express').Router();
 const { Recipe } = require('../../models');
 const withAuth = require('../../utils/auth');
-require('dotenv').config();
 
-//get recipes
-//THIS IS DIRECTLY PULLED FROM RAPIDAPI
+require('dotenv').config();
 import axios from "axios";
 
+//get recipes
 const recipeSearch = {
   method: 'GET',
   url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch',
@@ -51,8 +50,7 @@ axios.request(recipeSearch).then(function (response) {
 	console.error(error);
 });
 
-const axios = require("axios");
-
+//get recipe by ingredient
 const recipeByIngredient = {
   method: 'GET',
   url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients',
@@ -73,6 +71,38 @@ const recipeByIngredient = {
 };
 
 axios.request(recipeByIngredient).then(function (response) {
+	console.log(response.data);
+}).catch(function (error) {
+	console.error(error);
+});
+
+//get random food joke
+const getJoke = {
+  method: 'GET',
+  url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/random',
+  headers: {
+    'X-RapidAPI-Key': `${process.env.RAPIDAPI_KEY}`,
+    'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+  }
+};
+
+axios.request(getJoke).then(function (response) {
+	console.log(response.data);
+}).catch(function (error) {
+	console.error(error);
+});
+
+//get random food trivia
+const getFoodTrivia = {
+  method: 'GET',
+  url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/trivia/random',
+  headers: {
+    'X-RapidAPI-Key': `${process.env.RAPIDAPI_KEY}`,
+    'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+  }
+};
+
+axios.request(getFoodTrivia).then(function (response) {
 	console.log(response.data);
 }).catch(function (error) {
 	console.error(error);
