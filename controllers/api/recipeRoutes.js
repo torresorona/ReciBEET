@@ -1,156 +1,101 @@
-// const router = require('express').Router();
-// const { Project } = require('../../models');
-// const withAuth = require('../../utils/auth');
-
 const router = require('express').Router();
-const { Recipe } = require('../../models');
-const withAuth = require('../../utils/auth');
-const axios = require('axios');
+const { Recipe, User } = require('../models');
+const withAuth = require('../utils/auth');
 
-router.post('/', withAuth, async (req, res) => {
+/**
+ * INTENTION: get 10 recipes (either top 10 or random)
+ * ORIGINAL FUNCTION FOM PAST PROJECT: Get all projects 
+ * CURRENTLY: gets all recipes
+ */
+router.get('/', async (req, res) => {
   try {
-    const newProject = await Project.create({
-      ...req.body,
-      user_id: req.session.user_id,
+    // Get all Recipes and JOIN with user data
+    const recipeData = await Recipe.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
     });
 
-    res.status(200).json(newProject);
+    // Serialize data so the template can read it
+    const recipes = recipeData.map((Recipe) => Recipe.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('homepage', { 
+      recipes, 
+      logged_in: req.session.logged_in 
+    });
   } catch (err) {
-    res.status(400).json(err);
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+/**
+ * INTENTION: Opening a recipe page??
+ * ORIGINAL FUNCTION FROM PAST PROJECT: loaded an individual project using the project's ID (example: /project/3 loads a page with information about Project3)
+ */
+router.get('/recipe/:id', async (req, res) => {
   try {
-    const projectData = await Project.destroy({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
+    const RecipeData = await Recipe.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
     });
 
-    if (!projectData) {
-      res.status(404).json({ message: 'No project found with this id!' });
-      return;
-    }
+    const recipe = recipeData.get({ plain: true });
 
-    res.status(200).json(projectData);
+    res.render('Recipe', {
+      ...recipe,
+      logged_in: req.session.logged_in
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-module.exports = router;
+// Use withAuth middleware to prevent access to route
+/**
+ * INTENTION: Loading a profile with the data: (passing along personal recipes to handlebars)
+ * ORIGINAL FUNCTION FROM PREVIOUS PROJECT: load a user's profile based on their user id
+ * Note: withAuth is a helper function that does not need to be changed. 
+ */
+router.get('/profile', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Recipe }],
+    });
 
-//get recipes
-//THIS IS DIRECTLY PULLED FROM RAPIDAPI
+    const user = userData.get({ plain: true });
 
-const options = {
-  method: 'GET',
-  url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch',
-  params: {
-    //~THIS IS A REQUIRED PARAMETERS ~ -K
-    query: 'pasta',
-
-    //~THESE ARE ALL OPTIONAL PARAMETERS ~ -K
-    // cuisine: 'italian',
-    // excludeCuisine: 'greek',
-    diet: 'vegetarian',
-    // intolerances: 'gluten',
-    // equipment: 'pan',
-    // includeIngredients: 'tomato,cheese',
-    // excludeIngredients: 'eggs',
-    type: 'main course',
-    instructionsRequired: 'true',
-    // fillIngredients: 'false',
-    //ADDRECIPEINFORMATION : If set to true, you get more information about the recipes returned. This saves the calls to get recipe information.
-    addRecipeInformation: 'false',
-    // titleMatch: 'Crock Pot',
-    // maxReadyTime: '20',
-    ignorePantry: 'true',
-    sort: 'popularity',
-    sortDirection: 'asc',
-    // minCarbs: '10',
-    // maxCarbs: '100',
-    // minProtein: '10',
-    // maxProtein: '100',
-    // minCalories: '50',
-    // maxCalories: '800',
-    // minFat: '10',
-    // maxFat: '100',
-    // minAlcohol: '0',
-    // maxAlcohol: '100',
-    // minCaffeine: '0',
-    // maxCaffeine: '100',
-    // minCopper: '0',
-    // maxCopper: '100',
-    // minCalcium: '0',
-    // maxCalcium: '100',
-    // minCholine: '0',
-    // maxCholine: '100',
-    // minCholesterol: '0',
-    // maxCholesterol: '100',
-    // minFluoride: '0',
-    // maxFluoride: '100',
-    // minSaturatedFat: '0',
-    // maxSaturatedFat: '100',
-    // minVitaminA: '0',
-    // maxVitaminA: '100',
-    // minVitaminC: '0',
-    // maxVitaminC: '100',
-    // minVitaminD: '0',
-    // maxVitaminD: '100',
-    // minVitaminE: '0',
-    // maxVitaminE: '100',
-    // minVitaminK: '0',
-    // maxVitaminK: '100',
-    // minVitaminB1: '0',
-    // maxVitaminB1: '100',
-    // minVitaminB2: '0',
-    // maxVitaminB2: '100',
-    // minVitaminB5: '0',
-    // maxVitaminB5: '100',
-    // minVitaminB3: '0',
-    // maxVitaminB3: '100',
-    // minVitaminB6: '0',
-    // maxVitaminB6: '100',
-    // minVitaminB12: '0',
-    // maxVitaminB12: '100',
-    // minFiber: '0',
-    // maxFiber: '100',
-    // minFolate: '0',
-    // maxFolate: '100',
-    // minFolicAcid: '0',
-    // maxFolicAcid: '100',
-    // minIodine: '0',
-    // maxIodine: '100',
-    // minIron: '0',
-    // maxIron: '100',
-    // minMagnesium: '0',
-    // maxMagnesium: '100',
-    // minManganese: '0',
-    // maxManganese: '100',
-    // minPhosphorus: '0',
-    // maxPhosphorus: '100',
-    // minPotassium: '0',
-    // maxPotassium: '100',
-    // minSelenium: '0',
-    // maxSelenium: '100',
-    // minSodium: '0',
-    // maxSodium: '100',
-    // minSugar: '0',
-    // maxSugar: '100',
-    // minZinc: '0',
-    // maxZinc: '100',
-    offset: '3',
-    number: '10',
-    //limitLicense: Whether the recipes should have an open license that allows for displaying with proper attribution.
-    limitLicense: 'true',
-    //Ranking: Whether to minimize missing ingredients (0), maximize used ingredients (1) first, or rank recipes by relevance (2).
-    ranking: '2'
-  },
-  headers: {
-    'X-RapidAPI-Key': '46ac9bce71msh6476ffc04953aabp1529c3jsn791a6eee8aeb',
-    'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+    res.render('profile', {
+      ...user,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
   }
-};
+});
+
+/**
+ * UNEDITED: login screen that will redirect to profile if the user is already logged in
+ * While the link would be obselete... 
+ */
+router.get('/login', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (req.session.logged_in) {
+    res.redirect('/profile');
+    return;
+  }
+
+  res.render('login');
+});
+
+module.exports = router;
