@@ -47,3 +47,12 @@ marquee {
   background-image: url('../../assets/images/ReciBEETopa20.png');
   background-size: contain;
 }
+
+.btn-sig-log {
+  margin: 20px;
+}
+
+label {
+  margin: 10px;
+  float: left;
+}
