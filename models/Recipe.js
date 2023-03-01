@@ -16,7 +16,7 @@ Recipe.init(
             allowNull: false,
         },
         instructions: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(5000),
             allowNull: false,
         },
         //example boolean for tags, may need to add more depending on what needs to be saved
