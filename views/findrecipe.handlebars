@@ -1,0 +1,71 @@
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-black navyHome">
+    <div class="container-fluid">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="../assets/images/ReciBEET2.png" alt="Logo" width="150" height="150"
+                        class="d-inline-block align-text-top">
+                </a>
+                <h1>ReciBEET</h1>
+            </div>
+        </nav>
+
+        <div class="navbar nav">
+          <a class="nav-link button" href="/">Home</a>
+          <a class="nav-link" href="/profile">Profile</a>
+          <a class="nav-link" href="/create">Create Recipe</a>
+          <a class="nav-link" href="/">Logout</a>
+                  
+        </div>
+
+    </div>
+</nav>
+
+
+  <!-- Add/Remove ingredients form --> 
+  <div class="container">
+    <div class="row">
+
+        <input type="hidden" name="count" value="1" />
+        <div class="control-group col-4" id="fields">
+          <br>
+          <h2 class="control-label text-center" for="field1">What's in your fridge?</h2>
+          <div class="controls" id="profs"> 
+            <form class="input-append">
+              <div id="field">
+                <input autocomplete="off" class="input form-control" id="field1" name="prof1" type="text" placeholder="INGREDIENT" data-items="8"/>
+                <button id="b1" class="btn add-more btn-dark" type="button">+</button>
+              </div>
+            </form>
+          </div>
+          <div>
+            <button class="btn btn-outline-dark" type="button">Submit</button>
+          </div>
+        </div>
+
+
+      <!--  Search Results for Add/Remove ingredients form -->
+      <div class="container  col-8  mb-3">
+        <h4 class="text-center mt-3">Recipe Results:</h4>
+        <div>
+              
+          <div class="list-group text-center p-2">
+
+            {{#each recipes as | recipe |}} 
+              <a href="#" class="list-group-item list-group-item-success">{{recipeName}}</a>
+            {{#/each}} 
+
+          </div>
+
+        </div>
+
+      </div>
+      
+      
+    </div>
+  </div>
+</body> 
+
+<script src="../public/js/findrecipes.js"></script>
