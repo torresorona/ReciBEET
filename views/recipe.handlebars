@@ -1,14 +1,63 @@
-<div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{{get_emoji}}}</p>
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-    <span for="img" aria-label="money">💲</span>
-    <span class="dollar-amount">{{format_amount needed_funding}}</span>
-    needed
-  </p>
-  <p>
-    <button class="btn btn-primary">Fund this Project!</button>
-  </p>
-</div>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-black navyHome">
+        <div class="container-fluid">
+            <nav class="navbar">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="../assets/images/ReciBEET2.png" alt="Logo" width="150" height="150"
+                            class="d-inline-block align-text-top">
+                    </a>
+                    <h1>ReciBEET</h1>
+                </div>
+            </nav>
+
+            <div class="navbar nav">
+                <a class="nav-link button" href="/">Home</a>
+                <a class="nav-link" href="/profile">Profile</a>
+                <a class="nav-link" href="/create">Create Recipe</a>
+                <a class="nav-link" href="/">Logout</a>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <div>
+        <div class="card text-center m-5 border-0">
+            <div class="mt-3">
+                <img src="{{image}}" style="max-width: 25rem;" class="card-img-top img-fluid" alt="...">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title" id="recipe-name">{{recipeName}}</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <h5 class="p-2 headers">Ingredients:</h5>
+
+                <ol class="list-group-item">
+
+                    {{#each recipes as | recipe |}}
+                    <p>{{ingredients}}</p>
+                    {{#/each}}
+                </ol>
+                <h5 class="mt-4 headers">Instructions:</h5>
+                <p class="list-group-item mb-3">{{instructions}}</p>
+            </ul>
+            <div class="card-body p-3">
+                <a href="#" class="btn btn-outline-primary profile-button">Find a Recipe</a>
+                <a href="#" class="btn btn-outline-danger profile-button">Create a Recipe</a>
+            </div>
+        </div>
+    </div>    
+
+
+    <!-- Footer section -->
+    <footer class="text-center p-3 m-0 bg-dark">
+        <div>
+            Created for you by a team that is Still Hungry © 2023
+        </div>
+
+    </footer>
+
+</body>
