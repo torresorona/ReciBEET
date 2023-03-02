@@ -1,19 +1,18 @@
 require('dotenv').config();
 import axios from "axios";
 
-const recipebyIngredientArray = [];
-const jokeArray = [];
+// const recipeByIngredientArray = [];
 
 
 //get recipe by ingredient
-//does this need to be a function? I think we'd be fine to leave it as a const
+//need to make this a function
 const recipeByIngredient = {
   method: 'GET',
   url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients',
   params: {
     //required param
     //I dont think I am targeting this right at all
-    ingredients: `${findrecipe.field1}`,
+    ingredients: `${findRecipe.field1}`,
     //optional params
     //Number: The maximal number of recipes to return (default = 5).
     number: '5',
@@ -28,11 +27,38 @@ const recipeByIngredient = {
 };
 
 axios.request(recipeByIngredient).then(function (response) {
-  const instance = response.data
-  recipebyIngredientArray.push(instance)
+  //parse data to get it into a variable
+  const instance = JSON.parse(response);
+  //set it to an array
+  var recipeByIngredientArray = [];
+
+  instance.response.forEach(function(recipe) {
+    //push each instance into the array
+    recipeByIngredientArray.push(findRecipe(recipe.id));
+  });
+  return recipeByIngredient.all(recipeByIngredientArray)
+    
+})
+//this grabs the instructions from the recipe route above
+function findRecipe(id) {
+  var options = {
+    method: 'GET',
+    url: `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipe.id}/information`,
+    headers: {
+      'X-RapidAPI-Key': `${process.env.RAPIDAPI_KEY}`,
+      'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+    }
+  };
+axios.request(options).then(function (response) {
+  console.log(response.data);
+  return request(response)
+	
 }).catch(function (error) {
-  console.error(error);
+	console.error(error);
 });
+}
+
+
 
 
 //get random food joke
