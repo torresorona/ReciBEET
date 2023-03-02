@@ -34,7 +34,7 @@
                     <div class="list-group text-center p-5">
                         
                         {{#each savedrecipes as | recipe |}} 
-                        <a href="#" class="list-group-item list-group-item-success">{{recipe.name}}</a>
+                        <a href="/recipe/{{recipe.recipeId}}" class="list-group-item list-group-item-success">{{recipe.recipeName}}</a>
                         {{#/each}}
                         
                     </div>
@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="text-center">
-                    <a href="#" class="btn btn-outline-dark profile-button">Find a Recipe</a>
+                    <a href="/findrecipe" class="btn btn-outline-dark profile-button">Find a Recipe</a>
                 </div>
 
 
@@ -60,7 +60,7 @@
                 <div class="list-group text-center p-5">
                         
                     {{#each createdrecipes as | recipe |}} 
-                    <a href="#" class="list-group-item list-group-item-success">{{recipe.name}}</a>
+                    <a href="/recipe/{{recipe.recipeId}}" class="list-group-item list-group-item-success">{{recipe.recipeName}}</a>
                     {{#/each}}
                     
                 </div>
@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="text-center">
-                <a href="#" class="btn btn-outline-dark profile-button">Create a Recipe</a>
+                <a href="/create" class="btn btn-outline-dark profile-button">Create a Recipe</a>
                 </div> 
 
             </div>  
