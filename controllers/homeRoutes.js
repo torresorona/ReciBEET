@@ -39,7 +39,7 @@ router.get('/', async (req, res) => {
  */
 router.get('/recipe/:id', async (req, res) => {
   try {
-    const RecipeData = await Recipe.findByPk(req.params.id, {
+    const recipeData = await Recipe.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -50,11 +50,10 @@ router.get('/recipe/:id', async (req, res) => {
 
     const recipe = recipeData.get({ plain: true });
 
-    res.render('Recipe', {
-      ...recipe,
-      logged_in: req.session.logged_in
-    });
+    res.status(200).json(recipe);
+
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -86,10 +85,9 @@ router.get('/profile', withAuth, async (req, res) => {
 
 /**
  * UNEDITED: login screen that will redirect to profile if the user is already logged in
- * While the link would be obselete... 
+ * While the link would be obselete, on the off chance that someone manually types in the route in the bar, we should keep it just in case
  */
 router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
     res.redirect('/profile');
     return;
@@ -97,5 +95,20 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+/**
+ * Pretty much just the same as the login route. 
+ * NOTE: If you are looking at the mini project, they include the sign up form on the same page as the login, which is why you don't see a route for it
+ * We need this route to render a seperate page. This is what our last challenge implied we do too.
+ */
+router.get("/signup", (req, res) => {
+  if (req.session.logged_in) {
+      res.redirect('/profile'); 
+      return;
+    }
+  
+  res.render('signup');
+});
+
 
 module.exports = router;

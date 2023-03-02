@@ -19,7 +19,7 @@ Recipe.init(
             type: DataTypes.STRING(5000),
             allowNull: false,
         },
-        igredients: {
+        ingredients: {
             type: DataTypes.STRING(5000),
             allowNull: false,
         },
