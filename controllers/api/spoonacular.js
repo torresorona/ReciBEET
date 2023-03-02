@@ -1,13 +1,19 @@
 require('dotenv').config();
 import axios from "axios";
 
+const recipebyIngredientArray = [];
+const jokeArray = [];
+
+
 //get recipe by ingredient
+//does this need to be a function? I think we'd be fine to leave it as a const
 const recipeByIngredient = {
   method: 'GET',
   url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients',
   params: {
     //required param
-    ingredients: 'apples,flour,sugar',
+    //I dont think I am targeting this right at all
+    ingredients: `${findrecipe.field1}`,
     //optional params
     //Number: The maximal number of recipes to return (default = 5).
     number: '5',
@@ -22,10 +28,12 @@ const recipeByIngredient = {
 };
 
 axios.request(recipeByIngredient).then(function (response) {
-	console.log(response.data);
+  const instance = response.data
+  recipebyIngredientArray.push(instance)
 }).catch(function (error) {
-	console.error(error);
+  console.error(error);
 });
+
 
 //get random food joke
 const getJoke = {
@@ -38,6 +46,9 @@ const getJoke = {
 };
 
 axios.request(getJoke).then(function (response) {
+  const instance = response.data
+
+  jokeArray.push(instance)
 	console.log(response.data);
 }).catch(function (error) {
 	console.error(error);
@@ -53,9 +64,12 @@ const getFoodTrivia = {
   }
 };
 
-axios.request(getFoodTrivia).then(function (response) {
-	console.log(response.data);
+axios.request(getFoodTrivia).then(function getTrivia(response) {
+  const trivia = response.data.stringify()
+	console.log(trivia);
 }).catch(function (error) {
 	console.error(error);
 });
 
+//should we export the arrays here?
+module.exports = {recipebyIngredientArray, jokeArray, trivia}
