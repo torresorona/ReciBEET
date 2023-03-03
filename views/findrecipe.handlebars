@@ -25,6 +25,7 @@
 
 
   <!-- Add/Remove ingredients form --> 
+  <form class="input-append" id="input-ingredients">
   <div class="container">
     <div class="row">
 
@@ -33,18 +34,19 @@
           <br>
           <h2 class="control-label text-center" for="field1">What's in your fridge?</h2>
           <div class="controls" id="profs"> 
-            <form class="input-append">
+
+
+            
               <div id="field">
                 <input autocomplete="off" class="input form-control" id="field1" name="prof1" type="text" placeholder="INGREDIENT" data-items="8"/>
                 <button id="b1" class="btn add-more btn-dark" type="button">+</button>
               </div>
-            </form>
           </div>
           <div>
-            <button class="btn btn-outline-dark" type="button">Submit</button>
+            <button class="btn btn-outline-dark" type="submit">Submit</button>
           </div>
         </div>
-
+</form>
 
       <!--  Search Results for Add/Remove ingredients form -->
       <div class="container  col-8  mb-3">
@@ -68,4 +70,4 @@
   </div>
 </body> 
 
-<script src="../public/js/findrecipes.js"></script>
+<script src="../public/js/ingredientbuttons.js"></script>

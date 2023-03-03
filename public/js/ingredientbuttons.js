@@ -1,3 +1,4 @@
+//allows the user to add ingredient and remove ingredients
 $(document).ready(function(){
     let next = 1;
     $(".add-more").click(function(e){
