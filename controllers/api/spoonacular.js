@@ -98,4 +98,4 @@ axios.request(getFoodTrivia).then(function getTrivia(response) {
 });
 
 //should we export the arrays here?
-module.exports = {recipebyIngredientArray, jokeArray, trivia}
+module.exports = {recipeByIngredient, jokeArray, trivia}
