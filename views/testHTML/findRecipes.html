@@ -48,25 +48,25 @@
 
 
   <!-- Add/Remove ingredients form --> 
-  <div class="container">
-    <div class="row">
-
-        <input type="hidden" name="count" value="1" />
-        <div class="control-group col-4" id="fields">
-          <br>
-          <h2 class="control-label text-center" for="field1">What's in your fridge?</h2>
-          <div class="controls" id="profs"> 
-            <form class="input-append">
-              <div id="field">
-                <input autocomplete="off" class="input form-control" id="field1" name="prof1" type="text" placeholder="INGREDIENT" data-items="8"/>
-                <button id="b1" class="btn add-more btn-dark" type="button">+</button>
-              </div>
-            </form>
+  <form class="input-append" id="input-ingredients">
+    <div class="container">
+      <div class="row">
+  
+          <input type="hidden" name="count" value="1" />
+          <div class="control-group col-4" id="fields">
+            <br>
+            <h2 class="control-label text-center" for="field1">What's in your fridge?</h2>
+            <div class="controls" id="profs"> 
+                <div id="field">
+                  <input autocomplete="off" class="input form-control" id="field1" name="prof1" type="text" placeholder="INGREDIENT" data-items="8"/>
+                  <button id="b1" class="btn add-more btn-dark" type="button">+</button>
+                </div>
+            </div>
+            <div>
+              <button class="btn btn-outline-dark" type="submit">Find Recipes!</button>
+            </div>
           </div>
-          <div>
-            <button class="btn btn-outline-dark" type="button">Submit</button>
-          </div>
-        </div>
+  </form>
 
 
       <!--  Search Results for Add/Remove ingredients form -->
@@ -105,7 +105,7 @@
 
   </footer>
 
-  <script src="../../public/js/"></script>
+  <script src="../../public/js/ingredientbuttons.js"></script>
 
 </body>
 
