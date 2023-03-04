@@ -1,10 +1,8 @@
-require('dotenv').config();
-const axios = require('axios/dist/node/axios.cjs');
-
+const axios = require('axios/dist/node/axios.cjs')
 
 //get recipe by ingredient
 //need to make this a function
-const getRecipesByIngredients = (ingredeints) => {
+const getRecipeByIngedrients = (ingredients) => {
 
   const recipeByIngredient = {
     method: 'GET',
@@ -39,30 +37,31 @@ const getRecipesByIngredients = (ingredeints) => {
     return recipeByIngredient.all(recipeByIngredientArray)
       
   })
-  //this grabs the instructions from the recipe route above
-  function findRecipe(id) {
-    var options = {
-      method: 'GET',
-      url: `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipe.id}/information`,
-      headers: {
-        'X-RapidAPI-Key': `${process.env.RAPIDAPI_KEY}`,
-        'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
-      }
-    };
-  axios.request(options).then(function (response) {
-    console.log(response.data);
-    return request(response)
-    
-  }).catch(function (error) {
-    console.error(error);
-  });
-}
 }
 
+//this grabs the instructions from the recipe route above
+// function findRecipe(id) {
+//   var options = {
+//     method: 'GET',
+//     url: `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipe.id}/information`,
+//     headers: {
+//       'X-RapidAPI-Key': `${process.env.RAPIDAPI_KEY}`,
+//       'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+//     }
+//   };
+// axios.request(options).then(function (response) {
+//   console.log(response.data);
+//   return request(response)
+	
+// }).catch(function (error) {
+// 	console.error(error);
+// });
+// }
 
 
 
-//get random food joke
+
+// //get random food joke
 // const getJoke = {
 //   method: 'GET',
 //   url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/random',
@@ -98,5 +97,4 @@ const getRecipesByIngredients = (ingredeints) => {
 // 	console.error(error);
 // });
 
-//should we export the arrays here?
-module.exports = {getRecipesByIngredients};
+module.exports = {getRecipeByIngedrients};

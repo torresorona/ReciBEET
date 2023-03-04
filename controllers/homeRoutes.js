@@ -110,5 +110,18 @@ router.get("/signup", (req, res) => {
   res.render('signup');
 });
 
+router.get("/findrecipe", withAuth, (req, res) => {
+  try {
+    //API CALL
+      // returns recipes with passed ingredients
+    // Response
+    let recipes = req.body;
+    res.render('findrecipe', {
+      recipes
+    })
+  } catch (error) {
+    console.log(error);
+  }
+})
 
 module.exports = router;
