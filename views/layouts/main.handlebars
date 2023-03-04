@@ -26,7 +26,43 @@
 </head>
 
 <body>
-  {{{body}}}
+  <!-- Loading navbar on every page, even login and sign up pages. If the user clicks these links while on either page, it should not hurt anything. -->
+  <!-- This will make it easier for us, because then we only have to make sure that we're mounting the logout script one time instead of on every handlebar. -->
+  <header>
+     <!-- I took this nav-bar from the find-recipe function -->
+    <nav class="navbar navbar-expand-lg bg-black navyHome">
+      <div class="container-fluid">
+          <nav class="navbar">
+              <div class="container-fluid">
+                  <a class="navbar-brand" href="#">
+                    <!-- Moved the assets to public since they need to be accessed by handlebars and the broswer and handlebars is weird -->
+                      <img src="/assets/images/ReciBEET2.png" alt="Logo" width="150" height="150"
+                          class="d-inline-block align-text-top">
+                  </a>
+                  <h1>ReciBEET</h1>
+              </div>
+          </nav>
+
+          <div class="navbar nav">
+            <a class="nav-link button" href="/">Home</a>
+            <a class="nav-link" href="/profile">Profile</a>
+            <a class="nav-link" href="/createRecipe">Create Recipe</a>
+            {{#if logged_in}}
+            <a class="nav-link" href="/">Logout</a>
+            {{else}}
+            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" href="/signup">Sign Up</a>
+            {{/if}}
+          </div>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- Dynamically load all different handlebars sections -->
+  <main>
+      {{{body}}}
+  </main>
+
 
   <!-- Footer section -->
   <footer class="text-center p-3 m-0 bg-dark">

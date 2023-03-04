@@ -111,4 +111,11 @@ router.get("/signup", (req, res) => {
   res.render('signup');
 });
 
+router.get("/createRecipe", withAuth, (req, res) => {
+  
+  res.render("create", {
+    logged_in: req.session.logged_in
+  });
+})
+
 module.exports = router;

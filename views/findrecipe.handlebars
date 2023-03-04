@@ -1,29 +1,4 @@
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg bg-black navyHome">
-    <div class="container-fluid">
-        <nav class="navbar">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="../assets/images/ReciBEET2.png" alt="Logo" width="150" height="150"
-                        class="d-inline-block align-text-top">
-                </a>
-                <h1>ReciBEET</h1>
-            </div>
-        </nav>
-
-        <div class="navbar nav">
-          <a class="nav-link button" href="/">Home</a>
-          <a class="nav-link" href="/profile">Profile</a>
-          <a class="nav-link" href="/create">Create Recipe</a>
-          <a class="nav-link" href="/">Logout</a>
-                  
-        </div>
-
-    </div>
-</nav>
-
-
+<!-- Because the <body> tags are already being rendered by main.handlebars, we don't need to use them in any of the other handlebars. -->
   <!-- Add/Remove ingredients form --> 
   <form class="input-append" id="input-ingredients">
   <div class="container">
@@ -65,7 +40,6 @@
       
     </div>
   </div>
-</body> 
-
 <script src="/js/ingredientbuttons.js"></script>
+<!-- NOTE: the findrecipe.js script is one of the scripts we need to fix, alongside in homeRoutes. -->
 <script src="/js/findrecipe.js"></script>
