@@ -39,15 +39,23 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/profile');
     } else {
+      console.log(response)
       alert(response.statusText);
     }
   }
 };
 
-document
-  .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
+if (document.querySelector('.login-form')) {
+  // do something if the element exists
+  document
+    .querySelector('.login-form')
+    .addEventListener('submit', loginFormHandler);
+}
 
-document
-  .querySelector('.signup-form')
-  .addEventListener('submit', signupFormHandler);
+if (document.querySelector('.signup-form')) {
+  // do something if the element exists
+  document
+    .querySelector('.signup-form')
+    .addEventListener('submit', signupFormHandler);
+}
+
