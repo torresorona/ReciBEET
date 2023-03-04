@@ -16,7 +16,7 @@ const ingredientsFormHandler = async (event) => {
 
     let joinedIngredients = ingredientsArray.join(",");
     
-    const response = await fetch('/findrecipe', {
+    const response = await fetch('/api/findrecipe', {
         method: 'GET',
         body: JSON.stringify(joinedIngredients),
         headers: { 'Content-Type': 'application/json' },
