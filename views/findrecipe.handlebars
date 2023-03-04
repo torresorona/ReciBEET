@@ -1,9 +1,8 @@
 <!-- Because the <body> tags are already being rendered by main.handlebars, we don't need to use them in any of the other handlebars. -->
   <!-- Add/Remove ingredients form --> 
-  <form class="input-append" id="input-ingredients" class="ingredients-form">
+  <form class="input-append" id="input-ingredients">
   <div class="container">
     <div class="row">
-
         <input type="hidden" name="count" value="1" />
         <div class="control-group col-4" id="fields">
           <br>
@@ -11,14 +10,14 @@
           <div class="controls" id="profs"> 
               <div id="field">
                 <input autocomplete="off" class="ingredient input form-control" id="field1" name="prof1" type="text" placeholder="INGREDIENT" data-items="8"/>
-                <button id="b1" class="btn add-more btn-dark" type="button">+</button>
+                <button id="b1" class="btn add-more btn-dark" type="submit">+</button>
               </div>
           </div>
           <div>
             <button class="btn btn-outline-dark" type="submit">Submit</button>
           </div>
         </div>
-</form>
+  </form>
 
       <!--  Search Results for Add/Remove ingredients form -->
       <div class="container  col-8  mb-3">
