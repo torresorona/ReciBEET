@@ -120,4 +120,13 @@ router.get("/createRecipe", withAuth, (req, res) => {
   });
 })
 
+/**
+ * load findRecipe page
+ */
+router.get("/findRecipe", withAuth, (req, res) => {
+  res.render('findrecipe',{
+    logged_in: req.session.logged_in
+  });
+})
+
 module.exports = router;
