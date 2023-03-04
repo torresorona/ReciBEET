@@ -39,16 +39,27 @@ router.post("/findrecipe", withAuth, (req, res) => {
     };
     
     let foundRecipes = axios.request(recipeByIngredient).then(function (response) {
+      //console.log(response.data);
       //parse data to get it into a variable
-      // const instance = JSON.parse({response});
       //set it to an array
       var recipeByIngredientArray = [];
-    
-      response.forEach(function(recipe) {
-        //push each instance into the array
-        recipeByIngredientArray.push(findRecipe(recipe.id));
+      
+      response.data.forEach(function(recipe) {
+        const options = {
+          method: 'GET',
+          url: `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipe.id}/information`,
+          headers: {
+            'X-RapidAPI-Key': `${process.env.RAPIDAPI_KEY}`,
+            'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+          }
+        };
+        
+        axios.request(options).then(function (response) {
+         console.log(response.data);
+        }).catch(function (error) {
+          console.log(error);
+        });
       });
-      return recipeByIngredient.all(recipeByIngredientArray)
         
     })
       // returns recipes with passed ingredients
