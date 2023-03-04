@@ -1,4 +1,4 @@
-const axios = require('axios/dist/node/axios.cjs')
+// const axios = require('axios/dist/node/axios')
 
 //get recipe by ingredient
 //need to make this a function
@@ -97,4 +97,4 @@ const getRecipeByIngedrients = (ingredients) => {
 // 	console.error(error);
 // });
 
-module.exports = {getRecipeByIngedrients};
+module.exports = getRecipeByIngedrients;

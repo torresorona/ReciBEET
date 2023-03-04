@@ -1,4 +1,4 @@
-const recipeByIngredients = require("./spoonacular.js")
+// const getRecipesByIngredients = require('../../utils/spoonacular')
 
 const ingredientsFormHandler = async (event) => {
     event.preventDefault();
@@ -15,13 +15,10 @@ const ingredientsFormHandler = async (event) => {
     }
 
     let joinedIngredients = ingredientsArray.join(",");
-
-    
-    let foundRecipes = recipeByIngredients(joinedIngredients);
     
     const response = await fetch('/findrecipe', {
         method: 'GET',
-        body: JSON.stringify(foundRecipes),
+        body: JSON.stringify(joinedIngredients),
         headers: { 'Content-Type': 'application/json' },
     })
     if (response.ok) {
