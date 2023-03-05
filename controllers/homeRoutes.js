@@ -50,8 +50,11 @@ router.get('/recipe/:id', async (req, res) => {
     });
 
     const recipe = recipeData.get({ plain: true });
-
-    res.status(200).json(recipe);
+    
+    res.render('recipe',{
+      ...recipe,
+      logged_in: req.session.logged_in
+    })
 
   } catch (err) {
     console.log(err);
@@ -128,5 +131,6 @@ router.get("/findRecipe", withAuth, (req, res) => {
     logged_in: req.session.logged_in
   });
 })
+
 
 module.exports = router;

@@ -55,7 +55,7 @@ router.post("/findrecipe", withAuth, (req, res) => {
         };
         
         axios.request(options).then(function (response) {
-         console.log(response.data);
+         //console.log(response.data);
         }).catch(function (error) {
           console.log(error);
         });
@@ -64,7 +64,7 @@ router.post("/findrecipe", withAuth, (req, res) => {
     })
       // returns recipes with passed ingredients
     // Response
-    //console.log(foundRecipes);
+    console.log(foundRecipes);
     res.render('findrecipe', {
       foundRecipes
     })

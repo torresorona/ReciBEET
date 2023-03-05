@@ -29,7 +29,9 @@
             <div class="text-center">
 
               {{#each recipes as |recipe|}}
-              {{> toprecipes recipe}}
+              <div class="list-group">
+              <a href='recipe/{{recipe.id}}' class="list-group-item list-group-item-action active">{{recipe.recipeName}}</a>
+              </div>
               {{/each}}
 
             </div>
