@@ -35,7 +35,7 @@ h5 {
   flex-wrap: wrap;
 }
 
-.card-title{
+.card-title {
   font-family: 'Mynerve';
   font-size: xx-large;
 }
@@ -68,4 +68,14 @@ marquee {
 label {
   margin: 10px;
   float: left;
+}
+
+.relist {
+  font-size: 14pt;
+  margin: 10px;
+}
+
+.relist:hover {
+  background-color: #d01e5f !important;
+  color: white !important;
 }

@@ -1,45 +1,48 @@
-  <div>
-    <marquee class="scroll-text"><i class="fa-solid fa-utensils"></i> Joke of the Day <i
-        class="fa-solid fa-utensils"></i> What do carrots
-      like to drink? <i class="fa-solid fa-utensils"></i> Root Beer! <i class="fa-solid fa-utensils"></i> Daily
-      Trivia <i class="fa-solid fa-utensils"></i> Did you know Beets have from 100-200 calories? <i
-        class="fa-solid fa-utensils"></i></marquee>
-  </div>
+<div>
+  <marquee class="scroll-text"><i class="fa-solid fa-utensils"></i> Joke of the Day <i class="fa-solid fa-utensils"></i>
+    What do carrots
+    like to drink? <i class="fa-solid fa-utensils"></i> Root Beer! <i class="fa-solid fa-utensils"></i> Daily
+    Trivia <i class="fa-solid fa-utensils"></i> Did you know Beets have from 100-200 calories? <i
+      class="fa-solid fa-utensils"></i></marquee>
+</div>
 
-  <div class="container-fluid text-center">
-    <div class="row content">
-      <div class="col-sm-2">
-      </div>
-      <div class="col-sm-8 text-left">
-        <h1>Welcome</h1>
-        <p> On ReciBEET you can instantly view the Top Ten Recipes that all our members are craving! Want to
-          make your own recipe?
-          Or even better, want a random recipe after providing us some ingredients? All you have to do is Sign
-          Up for an account
-          and you will have access to your own profile, the recipe generator and even a place where you can
-          put in your favorite
-          recipes to preserve them forever. <br> <strong>Check out Today's Top Ten Recipes below!</strong>
-        </p>
-        <hr>
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8 text-left">
+      <h1>Welcome</h1>
+      <p> On ReciBEET you can instantly view the Top Ten Recipes that all our members are craving! Want to
+        make your own recipe?
+        Or even better, want a random recipe after providing us some ingredients? All you have to do is Sign
+        Up for an account
+        and you will have access to your own profile, the recipe generator and even a place where you can
+        put in your favorite
+        recipes to preserve them forever. <br> <strong>Check out Today's Top Ten Recipes below!</strong>
+      </p>
+      <hr>
+      <br>
 
-        <div class="container  col-8  mb-3">
-          <h4 class="text-center mt-3">Featured User Recipes</h4>
+      <div class="container col-8 mb-3">
+        <h2 class="text-center mt-3">Featured User Recipes</h4>
           <div>
 
             <div class="text-center">
 
               {{#each recipes as |recipe|}}
               <div class="list-group">
-              <a href='recipe/{{recipe.id}}' class="list-group-item list-group-item-action active">{{recipe.recipeName}}</a>
+                <a href='recipe/{{recipe.id}}'
+                  class="list-group-item list-group-item-action relist">{{recipe.recipeName}}</a>
               </div>
               {{/each}}
 
             </div>
 
           </div>
-        </div>
-
       </div>
-    </div>
+      <br>
 
-</body>
+    </div>
+  </div>
+
+  </body>
