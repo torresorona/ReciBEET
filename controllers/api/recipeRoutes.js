@@ -3,13 +3,13 @@ const { Recipe } = require('../../models');
 const withAuth = require('../../utils/auth');
 const axios = require("axios");
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     console.log(req.body);
 
     const newRecipe = await Recipe.create({
       ...req.body,
-      user_id: 1,
+      user_id: req.session.user_id,
     });
 
     res.status(200).json(newRecipe)
