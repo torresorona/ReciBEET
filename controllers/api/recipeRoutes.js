@@ -3,12 +3,16 @@ const { Recipe } = require('../../models');
 const withAuth = require('../../utils/auth');
 const axios = require("axios");
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
+    console.log(req.body);
+
     const newRecipe = await Recipe.create({
       ...req.body,
-      user_id: req.session.user_id,
+      user_id: 1,
     });
+
+    res.status(200).json(newRecipe)
   } catch (err) {
     console.log(err);
   }
