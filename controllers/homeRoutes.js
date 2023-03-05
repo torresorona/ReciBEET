@@ -130,9 +130,19 @@ router.get("/createRecipe", withAuth, (req, res) => {
  * load findRecipe page
  */
 router.get("/findRecipe", withAuth, (req, res) => {
-  res.render('findrecipe',{
-    logged_in: req.session.logged_in
-  });
+  if (req.query.data) {
+    console.log(req.query.data);
+    res.render('findrecipe',{
+      recipes: req.query.data,
+      logged_in: req.session.logged_in
+    });
+    
+  } else {
+    res.render('findrecipe',{
+      logged_in: req.session.logged_in
+    });
+
+  }
 })
 
 

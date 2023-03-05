@@ -18,9 +18,10 @@ router.post('/', withAuth, async (req, res) => {
   }
 })
 
-router.post("/findrecipe", withAuth, async (req, res) => {
-  let passedIngredients = req.body.joinedIngredients;
+router.get("/findrecipe", withAuth, async (req, res) => {
   try {
+    let passedIngredients = req.query.passedIngredients;
+    console.log(passedIngredients);
     //API CALL
     const recipeByIngredient = {
       method: 'GET',
@@ -46,40 +47,43 @@ router.post("/findrecipe", withAuth, async (req, res) => {
       // console.log(response.data);
       return response.data
     })
-    console.log(foundRecipesIds);
 
-    let emptyArray = [];
+    let recipesData = [];
 
-    let recipesArray = await foundRecipesIds.forEach(async function(recipe) {
-          const findInfoFromId = {
-            method: 'GET',
-            url: `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipe.id}/information`,
-            headers: {
-              'X-RapidAPI-Key': `${process.env.RAPIDAPI_KEY}`,
-              'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
-            }
-          }
-          
-          let recipeInfo = await axios.request(findInfoFromId).then(function (response) {
-           return response.data;
-          }).catch(function (error) {
-            console.log(error);
-          });
-  
-          let recipeTitle = recipeInfo.title;
-          let recipeURL = recipeInfo.sourceUrl
-  
-          console.log(recipeTitle, recipeURL);
-  
-          emptyArray.push({title: recipeTitle, url: recipeURL});
+    for (i = 0; i < foundRecipesIds.length; i++) {
+      let recipe = foundRecipesIds[i];
+      const findInfoFromId = {
+        method: 'GET',
+        url: `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipe.id}/information`,
+        headers: {
+          'X-RapidAPI-Key': `${process.env.RAPIDAPI_KEY}`,
+          'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+        }
+      }
+
+      let recipeInfo = await axios.request(findInfoFromId).then(function (response) {
+        return response.data;
+      }).catch(function (error) {
+        console.log(error);
       });
+  
+      let recipeTitle = recipeInfo.title;
+      let recipeURL = recipeInfo.sourceUrl
 
-    res.render('findrecipe', {
-      recipes: emptyArray
-    })
+      console.log(recipeTitle, recipeURL);
+
+      recipesData.push({title: recipeTitle, url: recipeURL});
+
+    };
+
+    console.log(recipesData);
+
+    res.json(recipesData);
+
   } catch (error) {
     console.log(req.body.joinedIngredients);
     console.log(error);
+    res.statusText(error);
   }
 })
 
