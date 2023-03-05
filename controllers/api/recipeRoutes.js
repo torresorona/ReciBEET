@@ -42,35 +42,40 @@ router.post("/findrecipe", withAuth, async (req, res) => {
       }
     };
     
-    let foundRecipes = axios.request(recipeByIngredient).then(function (response) {
-      //console.log(response.data);
-      //parse data to get it into a variable
-      //set it to an array
-      var recipeByIngredientArray = [];
-      
-      response.data.forEach(function(recipe) {
-        const options = {
-          method: 'GET',
-          url: `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipe.id}/information`,
-          headers: {
-            'X-RapidAPI-Key': `${process.env.RAPIDAPI_KEY}`,
-            'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+    let foundRecipesIds = await axios.request(recipeByIngredient).then(function (response) {
+      // console.log(response.data);
+      return response.data
+    })
+    console.log(foundRecipesIds);
+
+    let emptyArray = [];
+
+    let recipesArray = await foundRecipesIds.forEach(async function(recipe) {
+          const findInfoFromId = {
+            method: 'GET',
+            url: `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipe.id}/information`,
+            headers: {
+              'X-RapidAPI-Key': `${process.env.RAPIDAPI_KEY}`,
+              'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+            }
           }
-        };
-        
-        let results = axios.request(options).then(function (response) {
-         return response.data;
-        }).catch(function (error) {
-          console.log(error);
-        });
-        return results;
+          
+          let recipeInfo = await axios.request(findInfoFromId).then(function (response) {
+           return response.data;
+          }).catch(function (error) {
+            console.log(error);
+          });
+  
+          let recipeTitle = recipeInfo.title;
+          let recipeURL = recipeInfo.sourceUrl
+  
+          console.log(recipeTitle, recipeURL);
+  
+          emptyArray.push({title: recipeTitle, url: recipeURL});
       });
-    });
-      // returns recipes with passed ingredients
-    // Response
-    console.log(await foundRecipes);
+
     res.render('findrecipe', {
-      foundRecipes
+      recipes: emptyArray
     })
   } catch (error) {
     console.log(req.body.joinedIngredients);
