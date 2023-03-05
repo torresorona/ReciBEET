@@ -18,7 +18,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 })
 
-router.post("/findrecipe", withAuth, (req, res) => {
+router.post("/findrecipe", withAuth, async (req, res) => {
   let passedIngredients = req.body.joinedIngredients;
   try {
     //API CALL
@@ -58,17 +58,17 @@ router.post("/findrecipe", withAuth, (req, res) => {
           }
         };
         
-        axios.request(options).then(function (response) {
-         //console.log(response.data);
+        let results = axios.request(options).then(function (response) {
+         return response.data;
         }).catch(function (error) {
           console.log(error);
         });
+        return results;
       });
-        
-    })
+    });
       // returns recipes with passed ingredients
     // Response
-    console.log(foundRecipes);
+    console.log(await foundRecipes);
     res.render('findrecipe', {
       foundRecipes
     })
