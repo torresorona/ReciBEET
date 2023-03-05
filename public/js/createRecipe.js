@@ -1,21 +1,24 @@
 const createRecipeFormHandler = async (event) => {
 event.preventDefault();
 
+console.log("Form submitted");
+
 const recipeName = document.querySelector('#inputRecipeName').value.trim();
 const instructions = document.querySelector('#inputInstructionsTextArea').value.trim();
 const ingredients = document.querySelector('#inputIngredients').value.trim();
 
 if (recipeName && instructions && ingredients) {
-    const response = await fetch('/api/recipeRoutes', {
+    const response = await fetch('/api/recipe/', {
     method: 'POST',
     body: JSON.stringify({ recipeName, instructions, ingredients }),
     headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-    document.location.replace('/recipe');
+    document.location.replace('/profile');
     } else {
-    alert(response.statusText);
+        console.log(response);
+        alert(response.statusText);
     }
 }
 };
