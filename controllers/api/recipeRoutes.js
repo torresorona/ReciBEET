@@ -18,9 +18,10 @@ router.post('/', withAuth, async (req, res) => {
   }
 })
 
-router.post("/findrecipe", withAuth, (req, res) => {
-  let passedIngredients = req.body.joinedIngredients;
+router.get("/findrecipe", withAuth, async (req, res) => {
   try {
+    let passedIngredients = req.query.passedIngredients;
+    console.log(passedIngredients);
     //API CALL
     const recipeByIngredient = {
       method: 'GET',
@@ -42,39 +43,47 @@ router.post("/findrecipe", withAuth, (req, res) => {
       }
     };
     
-    let foundRecipes = axios.request(recipeByIngredient).then(function (response) {
-      //console.log(response.data);
-      //parse data to get it into a variable
-      //set it to an array
-      var recipeByIngredientArray = [];
-      
-      response.data.forEach(function(recipe) {
-        const options = {
-          method: 'GET',
-          url: `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipe.id}/information`,
-          headers: {
-            'X-RapidAPI-Key': `${process.env.RAPIDAPI_KEY}`,
-            'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
-          }
-        };
-        
-        axios.request(options).then(function (response) {
-         //console.log(response.data);
-        }).catch(function (error) {
-          console.log(error);
-        });
+    let foundRecipesIds = await axios.request(recipeByIngredient).then(function (response) {
+      // console.log(response.data);
+      return response.data
+    })
+
+    let recipesData = [];
+
+    for (i = 0; i < foundRecipesIds.length; i++) {
+      let recipe = foundRecipesIds[i];
+      const findInfoFromId = {
+        method: 'GET',
+        url: `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipe.id}/information`,
+        headers: {
+          'X-RapidAPI-Key': `${process.env.RAPIDAPI_KEY}`,
+          'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+        }
+      }
+
+      let recipeInfo = await axios.request(findInfoFromId).then(function (response) {
+        return response.data;
+      }).catch(function (error) {
+        console.log(error);
       });
-        
-    })
-      // returns recipes with passed ingredients
-    // Response
-    console.log(foundRecipes);
-    res.render('findrecipe', {
-      foundRecipes
-    })
+  
+      let recipeTitle = recipeInfo.title;
+      let recipeURL = recipeInfo.sourceUrl
+
+      console.log(recipeTitle, recipeURL);
+
+      recipesData.push({title: recipeTitle, url: recipeURL});
+
+    };
+
+    console.log(recipesData);
+
+    res.json(recipesData);
+
   } catch (error) {
     console.log(req.body.joinedIngredients);
     console.log(error);
+    res.statusText(error);
   }
 })
 

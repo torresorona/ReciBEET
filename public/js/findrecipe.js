@@ -16,15 +16,30 @@ const ingredientsFormHandler = async (event) => {
 
     let joinedIngredients = ingredientsArray.join(",");
     joinedIngredients = joinedIngredients.trim();
+    const encodedIngredients = encodeURIComponent(joinedIngredients);
     
-    const response = await fetch('/api/recipe/findrecipe', {
-        method: 'POST',
-        body: JSON.stringify({joinedIngredients}),
+    const response = await fetch(`/api/recipe/findrecipe?passedIngredients=${encodedIngredients}`, {
+        method: 'GET',
         headers: { 'Content-Type': 'application/json' },
     })
+
     if (response.ok) {
-        // If successful, redirect the browser to the profile page
-        console.log(response);
+        console.log("Response from findrecipe JS");
+        const data = await response.json();
+        console.log(data);
+        
+        for (i = 0; i < data.length; i++) {
+            let recipe = data[i];
+            console.log(recipe);
+            let recipeAnchor = document.createElement('a');
+            recipeAnchor.textContent = recipe.title;
+            recipeAnchor.setAttribute('href', recipe.url);
+            recipeAnchor.setAttribute('class', "list-group-item list-group-item-success")
+
+            let recipesResults = document.querySelector('.recipes-results');
+            recipesResults.appendChild(recipeAnchor);
+        }
+
       } else {
         alert(response.statusText);
       }
