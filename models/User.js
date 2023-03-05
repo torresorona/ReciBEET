@@ -35,6 +35,9 @@ User.init(
         len: [8],
       },
     },
+    savedRecipes: {
+      type: DataTypes.TEXT,
+    }
   },
   {
     hooks: {

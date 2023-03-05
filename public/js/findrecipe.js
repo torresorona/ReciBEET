@@ -15,10 +15,11 @@ const ingredientsFormHandler = async (event) => {
     }
 
     let joinedIngredients = ingredientsArray.join(",");
+    joinedIngredients = joinedIngredients.trim();
     
-    const response = await fetch('/api/findrecipe', {
-        method: 'GET',
-        body: JSON.stringify(joinedIngredients),
+    const response = await fetch('/api/recipe/findrecipe', {
+        method: 'POST',
+        body: JSON.stringify({joinedIngredients}),
         headers: { 'Content-Type': 'application/json' },
     })
     if (response.ok) {
@@ -30,6 +31,4 @@ const ingredientsFormHandler = async (event) => {
 
 }
 
-document
-  .querySelector('.ingredients-form')
-  .addEventListener('submit', ingredientsFormHandler);
+document.querySelector('#input-ingredients').addEventListener('submit', ingredientsFormHandler);

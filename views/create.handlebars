@@ -1,5 +1,11 @@
-{{#if loggedIn}}
-<form>
+<!-- The variable being passed from the route is called "logged_in" instead of "loggedIn". -->
+<!-- This was actually one of the bugs I encoutered in my challenge -->
+<!-- Also, the #if logged_in is redundant in this scenario because there is already a check in the route (withAuth) that will redirect the user if they are not logged in -->
+<!-- No worries about this though, I hadn't created the route yet anyways because I was a silly goose -H -->
+
+
+<!-- This form needed a class so we can attach a FormHandler -->
+<form class="create-form">
     <div class="form-group">
         <label for="recipeName">Recipe Name</label><br>
         <input type="name" class="form-control form-control-lg" id="inputRecipeName"
@@ -16,4 +22,4 @@
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 <script src="/js/createRecipe.js"></script>
-{{/if}}
+

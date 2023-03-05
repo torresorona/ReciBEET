@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
 });
 
 /**
- * INTENTION: Opening a recipe page??
+ * INTENTION: Opening a recipe page
  * ORIGINAL FUNCTION FROM PAST PROJECT: loaded an individual project using the project's ID (example: /project/3 loads a page with information about Project3)
  */
 router.get('/recipe/:id', async (req, res) => {
@@ -50,8 +50,11 @@ router.get('/recipe/:id', async (req, res) => {
     });
 
     const recipe = recipeData.get({ plain: true });
-
-    res.status(200).json(recipe);
+    
+    res.render('recipe',{
+      ...recipe,
+      logged_in: req.session.logged_in
+    })
 
   } catch (err) {
     console.log(err);
@@ -77,7 +80,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     res.render('profile', {
       ...user,
-      logged_in: true
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -110,5 +113,24 @@ router.get("/signup", (req, res) => {
   
   res.render('signup');
 });
+
+/**
+ * Rendering the createRecipe page, passing the logged_in variable so the user will stay logged in
+ */
+router.get("/createRecipe", withAuth, (req, res) => {
+  res.render("create", {
+    logged_in: req.session.logged_in
+  });
+})
+
+/**
+ * load findRecipe page
+ */
+router.get("/findRecipe", withAuth, (req, res) => {
+  res.render('findrecipe',{
+    logged_in: req.session.logged_in
+  });
+})
+
 
 module.exports = router;
