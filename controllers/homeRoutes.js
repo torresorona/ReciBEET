@@ -145,5 +145,8 @@ router.get("/findRecipe", withAuth, (req, res) => {
   }
 })
 
+router.get("/recipe/:id/edit", withAuth, (req, res) => {
+  
+})
 
 module.exports = router;

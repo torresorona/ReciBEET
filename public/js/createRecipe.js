@@ -5,7 +5,9 @@ console.log("Form submitted");
 
 const recipeName = document.querySelector('#inputRecipeName').value.trim();
 const instructions = document.querySelector('#inputInstructionsTextArea').value.trim();
-const ingredients = document.querySelector('#inputIngredients').value.trim();
+const ingredients = Array.from(document.querySelectorAll('.ingredient'))
+        .map(input => input.value.trim())
+        .join(',');
 
 if (recipeName && instructions && ingredients) {
     const response = await fetch('/api/recipe/', {

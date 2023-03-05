@@ -28,10 +28,13 @@
                 <h5 class="card-title text-center mt-3">Your Created Recipes</h5>
                 <div class="row">
 
-                <div class="list-group text-center p-5">
+                <div class="list-group text-center p-5 d-flex flex-column align-items-center w-100">
                         
                     {{#each createdrecipes as | recipe |}} 
-                    <a href="/recipe/{{recipe.id}}" class="list-group-item list-group-item-success">{{recipe.recipeName}}</a>
+                    <div class="d-flex flex-row w-100">
+                        <a href="/recipe/{{recipe.id}}" class="w-75 list-group-item list-group-item-success">{{recipe.recipeName}}</a>
+                        <button class="w-25 delete-recipe-btn" data-recipe-id="{{recipe.id}}">X</button>
+                    </div>
                     {{/each}}
                     
                 </div>
@@ -47,3 +50,5 @@
         </div>
         
     </div>
+
+<script src="/js/deleteRecipe.js"></script>
