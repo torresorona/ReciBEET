@@ -89,10 +89,13 @@ router.get("/findrecipe", withAuth, async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
-  const { recipe } = req.body;
 
   try {
-    const updatedRecipe = await Recipe.update(recipe, { where: { id } });
+    const updatedRecipe = await Recipe.update({
+      ...req.body,
+      }, { where: { id } });
+
+    console.log(updatedRecipe[0])
 
     if (updatedRecipe[0] === 0) {
       return res.status(404).json({ error: 'Recipe not found' });

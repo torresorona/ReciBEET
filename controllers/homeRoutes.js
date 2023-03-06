@@ -200,9 +200,10 @@ router.get("/recipe/:id/edit", withAuth, async (req, res) => {
   console.log(recipe);
 
   let passedIngredients = JSON.parse(recipe.ingredients);
+  let idInt = recipe.id
 
   res.render('updaterecipe', {
-    id: recipe.id.toString(),
+    id: idInt.toString(),
     recipeName: recipe.recipeName,
     instructions: recipe.instructions,
     ingredients: passedIngredients,
