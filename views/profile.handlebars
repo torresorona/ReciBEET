@@ -8,7 +8,7 @@
                     <div class="list-group text-center p-5">
                         
                         {{#each savedrecipes as | recipe |}} 
-                        <a href="/recipe/{{recipe.recipeId}}" class="list-group-item list-group-item-success">{{recipe.recipeName}}</a>
+                        <a href="/recipe/{{recipe.recipeId}}" class="list-group-item list-group-item-success rounded m-2">{{recipe.recipeName}}</a>
                         {{/each}}
                         
                     </div>
@@ -31,9 +31,9 @@
                 <div class="list-group text-center p-5 d-flex flex-column align-items-center w-100">
                         
                     {{#each createdrecipes as | recipe |}} 
-                    <div class="d-flex flex-row w-100">
-                        <a href="/recipe/{{recipe.id}}" class="w-75 list-group-item list-group-item-success">{{recipe.recipeName}}</a>
-                        <button class="w-25 delete-recipe-btn" data-recipe-id="{{recipe.id}}">X</button>
+                    <div class="d-flex flex-row">
+                        <a href="/recipe/{{recipe.id}}" class="list-group-item list-group-item-success rounded m-2">{{recipe.recipeName}}</a>
+                        <button class="delete-recipe-btn btn btn-outline-danger m-2" data-recipe-id="{{recipe.id}}">X</button>
                     </div>
                     {{/each}}
                     

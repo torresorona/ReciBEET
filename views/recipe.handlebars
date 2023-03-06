@@ -1,8 +1,5 @@
     <div>
         <div class="card text-center m-5 border-0">
-            <div class="mt-3">
-                <img src="{{image}}" style="max-width: 25rem;" class="card-img-top img-fluid" alt="{{recipeName}}">
-            </div>
             <div class="card-body">
                 <h5 class="card-title" id="recipe-name">{{recipeName}}</h5>
             </div>
@@ -19,8 +16,10 @@
                 <p class="list-group-item mb-3">{{instructions}}</p>
             </ul>
             <div class="card-body p-3">
-                <a href="/findrecipe" class="btn btn-outline-primary profile-button">Find a Recipe</a>
-                <a href="/createRecipe" class="btn btn-outline-danger profile-button">Create a Recipe</a>
+                <a href="/recipe/{{id}}/edit" class="btn btn-outline-secondary profile-button m-2">Update this Recipe</a><br>
+                <a href="/findrecipe" class="btn btn-outline-primary profile-button m-2">Find a Recipe</a><br>
+                <a href="/createRecipe" class="btn btn-outline-danger profile-button m-2">Create a Recipe</a><br>
+                
             </div>
         </div>
     </div>    

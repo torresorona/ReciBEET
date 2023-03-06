@@ -192,7 +192,7 @@ router.get("/recipe/:id/edit", withAuth, async (req, res) => {
 
   const recipe = recipeData.get({ plain: true });
 
-  console.log(recipe);
+  console.log(JSON.parse({recipe}));
   
   res.render('updaterecipe', {
     ...recipe,
