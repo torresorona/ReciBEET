@@ -2,26 +2,61 @@
   {
     "recipeName": "Strawberry Pretzel Salad",
     "instructions": "Crush up your pretzels. Melt some butter. Add a cup of sugar to your melted butter and get it to disolve. Coat your crushed pretzels in the sugar butter. Put the pretzels in a 9x13 pan and bake at 350F until golden brown. Once ready, take out and let cool. Cream your tub of cream cheese and a cup of sugar. Fold your cool whip into the cream cheese mixture. Cover your cooled pretzels in the cream cheese cool whip mixture. Set in fridge to set. Prepare your jello mixture. Add your frozen strawberries to the warmed jello mixture to thaw. Let cool to room temperature. Carefully add the cooled jello mix to the top of your cream-cheese cool whip.",
-    "ingredients": "Big bag of pretzels, tub of cream cheese, Two cups of sugar, Straberry Jello mix, Frozen strawberries, Cool Whip"
+    "ingredients": ["Big bag of pretzels", "tub of cream cheese", "Two cups of sugar", "Straberry Jello mix", "Frozen strawberries", "Cool Whip"]
   },
   {
     "recipeName": "Fruit Salad",
     "instructions": "Let's make some fruit salad today (Uh-huh-uh) It's fun to do it's the healthy way (Uh-huh-uh) Take all the fruit that you want to eat It's going to be a fruit salad treat (The first step) Peel your bananas (The second step) Toss in some grapes (The third step) Chop up some apples, Chop up some melons And put them on your plate",
-    "ingredients": "apples, bananas, grapes, melons"
+    "ingredients": ["apples", "bananas", "grapes", "melons"]
   },
   {
     "recipeName": "Citrus Seseme Kale",
     "instructions": "Heat sesame oil in a large skillet or wok over medium heat. Add ginger and garlic; cook for 30 seconds, or until fragrant, stirring constantly. Add kale and stir until coated with oil. Stir in soy sauce and orange juice; cover and cook for 3 minutes, or until kale is softened. Stir in sesame seeds and red pepper flakes (if using) and serve.",
-    "ingredients": "Kale, seseme oil, orange juice, garlic, soy sauce"
+    "ingredients": ["Kale", "seseme oil", "orange juice", "garlic", "soy sauce"]
   },
   {
     "recipeName": "Buckwheat Noodle Pasta",
     "instructions": "Whisk together the vinegar, sugar, ginger, honey, tamari, sesame oil, and chili sauce in a large bowl until combined. Slowly whisk in the canola oil until the dressing is emulsified. Add the noodles, carrot, pepper, cucumber, green onions and cilantro. Gently mix to combine and serve.",
-    "ingredients": "ginger, honey, vineger, sugar, noodles"
+    "ingredients": ["ginger", "honey", "vineger", "sugar", "noodles"]
   },
   {
     "recipeName": "Cauliflower Special",
     "instructions": "For the cauliflower: Preheat the oven to 425 degrees F. Remove the leaves from the cauliflower, then trim the stem flush with the bottom of the head so the cauliflower sits flat and upright. Transfer to a medium ovenproof skillet. Rub the outside of the cauliflower with the olive oil, then sprinkle evenly with the cumin, coriander, 1 teaspoon kosher salt and several grinds of pepper. Pour 1 cup water into the bottom of skillet, then wrap tightly with aluminum foil. Bake until the cauliflower is crisp-tender, 40 to 45 minutes. Remove the foil and continue to bake until the cauliflower is very tender and golden brown, 30 minutes more. (The core of the cauliflower should be tender but the whole head should hold its shape and not fall apart.) For the tahini sauce: Meanwhile, stir together the tahini, lemon juice, olive oil, cumin, garlic, 1/2 teaspoon kosher salt and several grinds of pepper until combined. Whisk in 3 to 4 tablespoons of water until the sauce is very smooth and creamy. The sauce may look lumpy at first, but will come together once the water is incorporated. Taste and adjust the seasoning with salt and pepper. Transfer the cauliflower to a serving platter, then top with the parsley, pine nuts, pomegranate seeds and a pinch of flaky sea salt. Drizzle with some of the tahini sauce, then cut into wedges and serve with more tahini sauce on the side. ",
-    "ingredients": "Cauliflower and a bunch of other stuff"
+    "ingredients": ["Cauliflower", "Olive oil","cumin", "coriander", "1 teaspoon kosher salt", "several grinds of pepper", "1 cup water", "lemon juice", "garlic" ]
+  },
+  {
+    "recipeName": "Savory Stuffed Butternut Squash",
+    "instructions": "Preheat the oven to 350 degrees F (175 degrees C). Cut butternut squash in half lengthwise and remove the seeds. Place squash, flesh side down into a 9x13 baking dish and add 2 cups water. Bake until a fork can easily pierce the squash, 1 to 1 1/2 hours. Remove from oven and place each half on a rimmed baking sheet lined with parchment or foil. Top each half with 3 pieces of butter and sprinkle with salt and pepper to taste. Increase oven temperature to 425 degrees F (220 degrees C). While squash bakes, heat oil in a skillet over medium-high heat. Add onion and garlic and cook for 1 minute. Add kale and cook for 1 more minute. Remove from heat and transfer mixture to a bowl. Stir in mustard, vinegar, syrup, thyme, salt, and pepper; stir well to combine. Add farro, walnuts, and cranberries and toss mixture to evenly coat. Divide farro mixture amongst the 2 squash halves. Bake for 10 minutes. Top each squash evenly with goat cheese and return to the oven for 3 minutes. Garnish with more thyme or parsley if desired.",
+    "ingredients": ["1 butternut squash", "1 tablespoon unsalted butter cut into pieces", "salt and freshly ground black pepper to taste", "3 tablespoons olive oil", "⅓ cup finely diced red onion", "1 clove garlic", "2 cups chopped baby kale", "1 tablespoon smooth Dijon mustard", "4 teaspoons apple cider vinegar", "4 teaspoons maple syrup", "1 teaspoon finely chopped fresh thyme", "½ teaspoon kosher salt", "¼ teaspoon pepper", "½ cup cooked farro", "⅓ cup chopped walnuts", "½ cup dried cranberries", "2 ounces goat cheese, crumbled", "chopped fresh parsley, for garnish (Optional)"]
+  },
+  {
+    "recipeName": "Classic Macaroni Salad",
+    "instructions": "Cook the macaroni in salted water. Mix the mayonnaise, sugar, vinegar, mustard, and seasonings together. Stir in the macaroni and remaining ingredients. Chill in the refrigerator.",
+    "ingredients": ["Macaroni", "mayonnaise", "yellow mustard", "white sugar", "white vineger", "salt", "ground black pepper", "celery", "onion", "bell pepper", "grated carrots", "pimento peppers"]
+  },
+  {
+    "recipeName": "Best Fried Green Tomatoes",
+    "instructions":"Gather all ingredients. All ingredients gathered to make fried green tomatoes. Slice tomatoes 1/2 inch thick. Discard the ends. Sliced green tomatoes resting on a cutting board. Whisk eggs and milk together in a medium-size bowl. Scoop flour onto a plate. Mix cornmeal, bread crumbs and salt and pepper on another plate. Dip tomatoes into flour to coat. Then dip the tomatoes into milk and egg mixture. Dredge in breadcrumbs to completely coat. Tomatoes being dipping into each mixture. In a large skillet, pour vegetable oil (enough so that there is 1/2 inch of oil in the pan) and heat over a medium heat. Place tomatoes into the frying pan in batches of 4 or 5, depending on the size of your skillet. Do not crowd the tomatoes, they should not touch each other. Tomatoes placed in a fryer until golden-brown. When the tomatoes are browned, flip and fry them on the other side. Drain them on paper towels.",
+    "ingredients": ["4 large green tomatoes", "2 eggs", "½ cup milk", "1 cup all-purpose flour", "½ cup cornmeal", "½ cup bread crumbs","2 teaspoons coarse kosher salt","¼ teaspoon ground black pepper","1 quart vegetable oil for frying"]
+  },
+  {
+    "recipeName": "Easy Apple Cider",
+    "instructions": "Combine apple cider and cinnamon sticks in a slow cooker. Place allspice and cloves onto the center of an 8-inch square piece of cheesecloth. Gather edges of the cheesecloth together and tie to secure; place in the slow cooker. Stir in brown sugar. Cook on High until it comes to a boil. Reduce heat to Low and keep warm.",
+    "ingredients": ["1 (64 fluid ounce) bottle apple cider", "3 cinnamon sticks", "1 teaspoon whole allspice", "1 teaspoon whole cloves","⅓ cup brown sugar"]
+  },
+  {
+    "recipeName": "Sweet Chili Thai Sauce",
+    "instructions": "Pour water and vinegar into a saucepan; bring to a boil over high heat. Stir in sugar, ginger, chile pepper, ketchup, and garlic; simmer for 5 minutes. Place cornstarch in a small bowl; mix in water until smooth. Whisk cornstarch mixture into chili sauce. Remove the saucepan from the stove; let cool. Transfer to a bowl, cover, and refrigerate until needed.",
+    "ingredients": ["1 cup water","1 cup rice vinegar","1 cup sugar","2 teaspoons fresh ginger root, minced","2 teaspoons hot chile pepper, minced","2 teaspoons ketchup","1 teaspoon garlic, minced","2 teaspoons cornstarch","1 tablespoon water, or as needed"]
+  },
+  {
+    "recipeName": "Dill Dip",
+    "instructions": "Combine mayonnaise, sour cream, onion, dill weed, seasoning salt, and parsley together in a bowl; cover and refrigerate overnight.",
+    "ingredients": ["2 cups mayonnaise","2 cups sour cream","3 tablespoons grated onion","3 tablespoons dried dill weed","1 ½ teaspoons seasoned salt, or more to taste","1 tablespoon dried parsley"]
+  },
+  {
+    "recipeName": "Banana Chips",
+    "instructions": "Preheat the oven to 225 degrees F (110 degrees C). Line a baking sheet with parchment paper. Spread banana slices out onto the prepared baking sheet, making sure slices are not touching. Brush with lemon juice. Bake in the preheated oven for 90 minutes. Check bananas, lifting slices up to separate from the paper once or twice. Continue baking until bananas are dried out, 30 to 90 minutes more. Let bananas cool until crispy, at least 5 minutes.",
+    "ingredients": ["2 just-ripe bananas sliced in 1/10-inch-thick rounds, or more as needed", "1 teaspoon lemon juice, or to taste"]
   }
 ]
