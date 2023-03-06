@@ -1,0 +1,27 @@
+<form class="update-form m-5">
+    <div>
+        <div class="card text-center m-5 border-0">
+            <div class="card-body">
+                <textarea class="card-title" id="recipe-name">{{recipeName}}</textarea>
+            </div>
+            <ul class="list-group list-group-flush">
+                <h5 class="p-2 headers">Ingredients:</h5>
+              
+                <ol class="list-group-item">
+                    {{#each ingredients as | ingredient |}}
+                    <textarea>{{ingredient}}</textarea>
+                    {{/each}}
+                </ol>
+               
+                <h5 class="mt-4 headers">Instructions:</h5>
+                <textarea class="mb-3">{{instructions}}</textarea>
+            </ul>
+        </div>
+    </div> 
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<script src="/js/createRecipe.js"></script>
+<script src="/js/createingredientbtn.js"></script>
+<script src="/js/updateRecipe.js"></script>

@@ -1,0 +1,23 @@
+<form class="update-form m-5">
+    <div class="form-group">
+        <h2 for="recipeName">Recipe Name:</h2><br>
+        <input type="name" class="form-control form-control-lg" id="recipe-name"
+            placeholder="{{recipeName}}">
+    </div><br>
+    <div class="controls" id="profs"> 
+        <div id="field">
+          <h2>Ingredients:</h2>
+          <input autocomplete="off" class="ingredient input form-control" id="field1" name="prof1" type="text" placeholder="INGREDIENT" data-items="8"/>
+          <button id="b1" class="btn add-more btn-dark" type="submit">+</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <h2 for="instructionsText">Instructions:</h2><br>
+        <textarea class="form-control form-control-lg" id="inputInstructionsTextArea" rows="5">{{instructions}}</textarea>
+    </div><br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<script src="/js/createRecipe.js"></script>
+<script src="/js/createingredientbtn.js"></script>
+<script src="/js/updateRecipe.js"></script>
