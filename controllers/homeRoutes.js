@@ -85,11 +85,16 @@ router.get('/recipe/:id', async (req, res) => {
     });
 
     const recipe = recipeData.get({ plain: true });
-    
+    let passedIngredients = JSON.parse(recipe.ingredients);
+    let idInt = recipe.id
     res.render('recipe',{
-      ...recipe,
+      id: idInt.toString(),
+      recipeName: recipe.recipeName,
+      instructions: recipe.instructions,
+      ingredients: passedIngredients,
       logged_in: req.session.logged_in
     })
+    console.log(recipe)
 
   } catch (err) {
     console.log(err);
@@ -197,6 +202,7 @@ router.get("/recipe/:id/edit", withAuth, async (req, res) => {
   let passedIngredients = JSON.parse(recipe.ingredients);
 
   res.render('updaterecipe', {
+    id: recipe.id.toString(),
     recipeName: recipe.recipeName,
     instructions: recipe.instructions,
     ingredients: passedIngredients,
