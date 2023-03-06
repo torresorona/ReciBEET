@@ -2,7 +2,7 @@
     <div class="float-end text-center m-3">
         <button class="btn btn-outline-success profile-button m-2" onClick="window.print()"> 🖨️ Print this
             page</button><br>
-        {{#if {{id}} = {{user_id}} }}
+        {{#if (equal id user_id) }}
         <a href="/recipe/{{id}}/edit" class="btn btn-outline-dark profile-button m-2">Update this Recipe</a><br>
         {{/if}}
         <a href="/findrecipe" class="btn btn-outline-primary profile-button m-2">Find a Recipe</a><br>
@@ -13,7 +13,7 @@
     <div class="card border-0">
 
         <ul class="text-center row">
-
+ 
 
             <div class="col-4">
 

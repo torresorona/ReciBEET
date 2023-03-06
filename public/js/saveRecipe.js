@@ -1,7 +1,9 @@
 const saveBtn = document.querySelector(".save-button");
 
 saveBtn.addEventListener('click', async () => {
-    const recipeTitle = document.querySelector(".card-title").value;
+    const recipeTitle = document.querySelector(".card-title").innerHTML;
+    console.log(recipeTitle)
+
     const recipeId = saveBtn.dataset.recipeId;
     const requestOptions = {
     method: 'PUT',
