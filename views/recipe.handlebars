@@ -2,7 +2,9 @@
     <div class="float-end text-center m-3">
         <button class="btn btn-outline-success profile-button m-2" onClick="window.print()"> 🖨️ Print this
             page</button><br>
+        {{#if {{id}} = {{user_id}} }}
         <a href="/recipe/{{id}}/edit" class="btn btn-outline-dark profile-button m-2">Update this Recipe</a><br>
+        {{/if}}
         <a href="/findrecipe" class="btn btn-outline-primary profile-button m-2">Find a Recipe</a><br>
         <a href="/createRecipe" class="btn btn-outline-danger profile-button m-2">Create a Recipe</a><br>
         <a class="btn btn-outline-danger-success profile-button m-2 save-button">Save Recipe</a><br>
