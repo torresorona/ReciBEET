@@ -1,36 +1,38 @@
-    <div>
-        <div class="float-end text-center m-3">
-            <button class="btn btn-outline-success profile-button m-2"  onClick="window.print()"> 🖨️ Print this page</button><br>
-            <a href="/recipe/{{id}}/edit" class="btn btn-outline-dark profile-button m-2">Update this Recipe</a><br>
-            <a href="/findrecipe" class="btn btn-outline-primary profile-button m-2">Find a Recipe</a><br>
-            <a href="/createRecipe" class="btn btn-outline-danger profile-button m-2">Create a Recipe</a><br>
-        </div>
+<div>
+    <div class="float-end text-center m-3">
+        <button class="btn btn-outline-success profile-button m-2" onClick="window.print()"> 🖨️ Print this
+            page</button><br>
+        <a href="/recipe/{{id}}/edit" class="btn btn-outline-dark profile-button m-2">Update this Recipe</a><br>
+        <a href="/findrecipe" class="btn btn-outline-primary profile-button m-2">Find a Recipe</a><br>
+        <a href="/createRecipe" class="btn btn-outline-danger profile-button m-2">Create a Recipe</a><br>
+        <a class="btn btn-outline-danger-success profile-button m-2 save-button">Save Recipe</a><br>
+    </div>
 
-        <div class="card border-0">
-            
-            <ul class="text-center row">
-                
+    <div class="card border-0">
 
-                <div class="col-4">
-                    
-                    <ol>
-                        
-                        <h5 class="headers mt-5">Ingredients:</h5>
-                        {{#each ingredients as | ingredient |}}
-                        <p class="btn rounded-pill bg-light m-2">{{ingredient}}</p><br>
-                        {{/each}}
-                    </ol>
+        <ul class="text-center row">
+
+
+            <div class="col-4">
+
+                <ol>
+
+                    <h5 class="headers mt-5">Ingredients:</h5>
+                    {{#each ingredients as | ingredient |}}
+                    <p class="btn rounded-pill bg-light m-2">{{ingredient}}</p><br>
+                    {{/each}}
+                </ol>
+            </div>
+            <div class="col-8">
+                <div class="card-body m-3 text-center">
+                    <h5 class="card-title">{{recipeName}}</h5>
                 </div>
-                <div class="col-8">
-                    <div class="card-body m-3 text-center">
-                        <h5 class="card-title">{{recipeName}}</h5>
-                    </div>
-                    <h5 class="headers">Instructions:</h5>
-                    <p class="list-group-item mb-3">{{instructions}}</p>
-                </div>
-            </ul>
-        </div>
-    </div>    
+                <h5 class="headers">Instructions:</h5>
+                <p class="list-group-item mb-3">{{instructions}}</p>
+            </div>
+        </ul>
+    </div>
+</div>
 
 
 <!-- Because the footer is already being loaded on main.handlebars, we don't need to include it here.->
