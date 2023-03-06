@@ -174,8 +174,18 @@ router.get("/findRecipe", withAuth, (req, res) => {
   }
 })
 
-router.get("/recipe/:id/edit", withAuth, (req, res) => {
-  
+router.get("/recipe/:id/edit", withAuth, async (req, res) => {
+  const recipe = await Recipe.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+  res.render('updaterecipe', {
+    ...recipe
+  })
 })
 
 module.exports = router;
