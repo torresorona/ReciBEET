@@ -5,7 +5,7 @@ $(document).ready(function(){
         let addto = "#field" + next;
         let addRemove = "#field" + (next);
         next = next + 1;
-        let newIn = '<input autocomplete="off" class="ingredient input form-control" id="field' + next + '" name="field' + next + '" type="text" placeholder="INGREDIENT">';
+        let newIn = '<input autocomplete="off" class="ingredient input form-control border-primary bg-light" id="field' + next + '" name="field' + next + '" type="text" placeholder="INGREDIENT">';
         let newInput = $(newIn);
         let removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></div><div id="field">';
         let removeButton = $(removeBtn);
