@@ -181,7 +181,7 @@ router.get("/findRecipe", withAuth, (req, res) => {
 })
 
 router.get("/recipe/:id/edit", withAuth, async (req, res) => {
-  const recipe = await Recipe.findByPk(req.params.id, {
+  const recipeData = await Recipe.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -189,8 +189,14 @@ router.get("/recipe/:id/edit", withAuth, async (req, res) => {
         },
       ],
     });
+
+  const recipe = recipeData.get({ plain: true });
+
+  console.log(recipe);
+  
   res.render('updaterecipe', {
-    ...recipe
+    ...recipe,
+    logged_in: req.session.logged_in
   })
 })
 
