@@ -122,6 +122,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     res.render('profile', {
       ...user,
+      savedRecipes: JSON.parse(user.savedRecipes),
       createdrecipes: user.recipes,
       logged_in: req.session.logged_in,
     });

@@ -96,4 +96,26 @@ router.delete('/recipes/:id', async (req, res) => {
   }
 });
 
+router.put('/save-recipe', async (req, res, next) => {
+  try {
+    const { recipeToSave } = req.body; // assuming that the recipe value is stored in the req.body
+    const { user_id } = req.session; // assuming that the user_id value is stored in the req.session
+  
+    // Find the user by their id
+    const user = await User.findOne({ where: { id: user_id } });
+    
+    // Update the user's savedRecipes field with the new recipe
+    console.log(recipeToSave)
+    let savedRecipes = JSON.parse(user.savedRecipes) || []; // in case the savedRecipes field is initially undefined or null, we set it to an empty array
+    savedRecipes.push(recipeToSave);
+    savedRecipes = JSON.stringify(savedRecipes)
+    console.log(savedRecipes)
+    await user.update({ savedRecipes });
+  
+    res.status(200).json({ message: 'Recipe saved successfully' });
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

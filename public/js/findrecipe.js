@@ -3,6 +3,10 @@
 const ingredientsFormHandler = async (event) => {
     event.preventDefault();
 
+    const submitBtn = document.querySelector('#b1');
+    submitBtn.disabled = true;
+
+
     const ingredients = document.querySelectorAll('.ingredient')
 
     let ingredientsArray = [];
@@ -41,11 +45,39 @@ const ingredientsFormHandler = async (event) => {
             let saveRecipe = document.createElement('button');
             saveRecipe.textContent = "SAVE ♥";
             saveRecipe.setAttribute('class', "btn btn-outline-dark m-2 col-2")
+            saveRecipe.setAttribute('id', `save-recipe-${i}-btn`)
 
             let recipesResults = document.querySelector('.recipes-results');
             recipesResults.appendChild(recipeAnchor);
             recipesResults.appendChild(saveRecipe);
-        }
+
+            let saveButton = document.querySelector(`#save-recipe-${i}-btn`);
+
+            saveButton.addEventListener('click', async (e) => {  
+                e.preventDefault()
+                try {
+                    console.log("Recipe being saved: " + recipe.title);
+                    const response = await fetch(`/api/users/save-recipe`, {
+                        method: 'PUT',
+                        body: JSON.stringify({recipeToSave: {...recipe}}),
+                        headers: { 'Content-Type': 'application/json' },
+                    });
+
+                if (response.ok) {
+                    // Reload the page or update the UI to reflect the deletion
+                    saveButton.classList.add('bg-danger')
+                } else {
+                    const error = await response.json();
+                    console.error(error);
+                }
+                } catch (error) {
+                console.log(error);
+                }
+                });
+            };
+
+            submitBtn.disabled = false;
+
 
       } else {
         alert(response.statusText);
@@ -54,3 +86,4 @@ const ingredientsFormHandler = async (event) => {
 }
 
 document.querySelector('#input-ingredients').addEventListener('submit', ingredientsFormHandler);
+
