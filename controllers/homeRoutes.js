@@ -92,7 +92,8 @@ router.get('/recipe/:id', async (req, res) => {
       recipeName: recipe.recipeName,
       instructions: recipe.instructions,
       ingredients: passedIngredients,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id
     })
     console.log(recipe)
 

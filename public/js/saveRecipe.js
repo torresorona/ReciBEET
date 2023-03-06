@@ -1,17 +1,18 @@
 const saveBtn = document.querySelector(".save-button");
 
 saveBtn.addEventListener('click', async () => {
-  const recipeId = saveBtn.dataset.recipeId;
-  const requestOptions = {
+    const recipeTitle = document.querySelector(".card-title").value;
+    const recipeId = saveBtn.dataset.recipeId;
+    const requestOptions = {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ recipeToSave: {titlerecipeId }),
-  };
-  try {
-    const response = await fetch('/api/users/saverecipe', requestOptions);
+    body: JSON.stringify({ recipeToSave: {title: recipeTitle, url: `/recipe/${recipeId}`}}),
+    };
+    try {
+    const response = await fetch('/api/users/save-recipe', requestOptions);
     const data = await response.json();
     console.log(data);
-  } catch (error) {
+    } catch (error) {
     console.error(error);
-  }
-})
+    }
+    });
