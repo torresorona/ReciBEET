@@ -2,6 +2,8 @@ const router = require('express').Router();
 const { Recipe, User } = require('../models');
 const withAuth = require('../utils/auth');
 const axios = require('axios');
+const Sequelize = require('../config/connection');
+
 
 /**
  * INTENTION: get 10 recipes (either top 10 or random)
@@ -18,10 +20,14 @@ router.get('/', async (req, res) => {
           attributes: ['name'],
         },
       ],
+      order: Sequelize.literal('rand()'), 
+      limit: 10 
     });
 
+    
+
     // Serialize data so the template can read it
-    const recipes = recipeData.map((Recipe) => Recipe.get({ plain: true }));
+    const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
     
     const jokeOfDay = {
       method: 'GET',
