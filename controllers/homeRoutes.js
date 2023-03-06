@@ -22,12 +22,41 @@ router.get('/', async (req, res) => {
 
     // Serialize data so the template can read it
     const recipes = recipeData.map((Recipe) => Recipe.get({ plain: true }));
+    
+    const jokeOfDay = {
+      method: 'GET',
+      url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/random',
+      headers: {
+        'X-RapidAPI-Key': `${process.env.RAPIDAPI_KEY}`,
+        'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+      }
+    };
 
-    // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      recipes, 
-      logged_in: req.session.logged_in 
+    const triviaOfDay = {
+      method: 'GET',
+      url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/trivia/random',
+      headers: {
+        'X-RapidAPI-Key': `${process.env.RAPIDAPI_KEY}`,
+        'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+      }
+    };
+
+    axios.request(jokeOfDay).then(function(response) {
+      const joke = response.data.text;
+      axios.request(triviaOfDay).then(function(response){
+        const trivia = response.data.text;
+        res.render('homepage', { 
+          recipes, 
+          joke,
+          trivia,
+          logged_in: req.session.logged_in 
+        });
+      });
     });
+
+    
+    // Pass serialized data and session flag into template
+    
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
