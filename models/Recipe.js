@@ -20,7 +20,7 @@ Recipe.init(
             allowNull: false,
         },
         ingredients: {
-            type: DataTypes.STRING(5000),
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         user_id: {
