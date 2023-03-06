@@ -34,10 +34,17 @@ const ingredientsFormHandler = async (event) => {
             let recipeAnchor = document.createElement('a');
             recipeAnchor.textContent = recipe.title;
             recipeAnchor.setAttribute('href', recipe.url);
-            recipeAnchor.setAttribute('class', "list-group-item list-group-item-success")
+            recipeAnchor.setAttribute('class', "p-2 list-group-item rounded-pill text-black bg-warning m-2 col-8")
+            recipeAnchor.setAttribute('target', "_blank");
+
+        
+            let saveRecipe = document.createElement('button');
+            saveRecipe.textContent = "SAVE ♥";
+            saveRecipe.setAttribute('class', "btn btn-outline-dark m-2 col-2")
 
             let recipesResults = document.querySelector('.recipes-results');
             recipesResults.appendChild(recipeAnchor);
+            recipesResults.appendChild(saveRecipe);
         }
 
       } else {

@@ -2,24 +2,29 @@
     <div>
         <div class="card text-center m-5 border-0">
             <div class="card-body">
-                <textarea class="card-title" id="recipe-name">{{recipeName}}</textarea>
+                <h5 class="headers m-3">Recipe Name:</h5>
+                <textarea class="card-title text-center rounded w-75" rows="1" type="text">{{recipeName}}</textarea>
             </div>
-            <ul class="list-group list-group-flush">
-                <h5 class="p-2 headers">Ingredients:</h5>
-              
-                <ol class="list-group-item">
+            <ul class="text-center row">              
+                <ol class="text-center col-4">
+                    <h5 class="headers">Ingredients:</h5>
                     {{#each ingredients as | ingredient |}}
-                    <textarea>{{ingredient}}</textarea>
+                    <textarea class="form-control m-2 text-center" rows="1">{{ingredient}}</textarea>
                     {{/each}}
+                    <input autocomplete="off" class="ingredient input form-control m-2 text-center" rows="1" id="field1" name="prof1" type="text" placeholder="INGREDIENT" data-items="8"/>
+                    <button id="b1" class="btn add-more btn-dark" type="submit">+</button>
                 </ol>
-               
-                <h5 class="mt-4 headers">Instructions:</h5>
-                <textarea class="mb-3">{{instructions}}</textarea>
+                <div class="col">
+                    <h5 class="headers">Instructions:</h5>
+                    <textarea class="form-control text-center rounded" rows="7">{{instructions}}</textarea>
+                </div>
             </ul>
         </div>
     </div> 
-    <br>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="text-center">
+        <button type="submit" class="btn btn-outline-success">Submit</button>
+    <div>
+
 </form>
 
 <script src="/js/createRecipe.js"></script>

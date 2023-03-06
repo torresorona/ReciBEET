@@ -5,24 +5,26 @@
 
 
 <!-- This form needed a class so we can attach a FormHandler -->
-<form class="create-form m-5">
-    <div class="form-group">
+<form class="create-form m-5 text-center">
+    <div class="form-group m-5 text-center">
         <h2 for="recipeName">Recipe Name:</h2><br>
-        <input type="name" class="form-control form-control-lg" id="inputRecipeName"
+        <input type="name" class="form-control-lg text-center w-75 border-primary bg-light" id="inputRecipeName"
             placeholder="Enter Your Recipe's Name">
     </div><br>
-    <div class="controls" id="profs"> 
-        <div id="field">
-          <h2>Ingredients:</h2>
-          <input autocomplete="off" class="ingredient input form-control" id="field1" name="prof1" type="text" placeholder="INGREDIENT" data-items="8"/>
-          <button id="b1" class="btn add-more btn-dark" type="submit">+</button>
+    <div class="row m-5 mt-3">
+        <div class="controls col-4" id="profs"> 
+            <div id="field">
+            <h2>Ingredients:</h2>
+            <input autocomplete="off" class="ingredient input form-control border-primary bg-light" id="field1" name="prof1" type="text" placeholder="INGREDIENT" data-items="8"/>
+            <button id="b1" class="btn add-more btn-dark m-1" type="submit">+</button>
+            </div>
         </div>
+        <div class="form-group col-8">
+            <h2 for="instructionsText">Instructions:</h2>
+            <textarea class="form-control form-control-lg text-center border-primary bg-light" id="inputInstructionsTextArea" rows="5"></textarea>
+        </div><br>
     </div>
-    <div class="form-group">
-        <h2 for="instructionsText">Instructions:</h2><br>
-        <textarea class="form-control form-control-lg" id="inputInstructionsTextArea" rows="5"></textarea>
-    </div><br>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-outline-success m-5">Submit</button>
 </form>
 
 <script src="/js/createRecipe.js"></script>
