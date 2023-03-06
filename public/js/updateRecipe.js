@@ -7,16 +7,22 @@ const updateRecipeFormHandler = async (event) => {
     const instructions = document.querySelector('#inputInstructionsTextArea').value.trim();
     let ingredients = Array.from(document.querySelectorAll('.ingredient'))
             .map(input => input.value.trim());
-    console.log(ingredients)
-    ingredients = JSON.stringify(ingredients);
+
     console.log(ingredients)
 
-    const recipeId = button.dataset.recipeId;
+    ingredients = JSON.stringify(ingredients);
+
+    console.log(ingredients)
+
+    const recipeId = event.target.dataset.recipeId;
+    const recipe = JSON.stringify({ recipeName, instructions, ingredients })
+
+    console.log(recipe)
 
     if (recipeName && instructions && ingredients) {
         const response = await fetch(`/api/recipe/${recipeId}`, {
         method: 'PUT',
-        body: JSON.stringify({ recipeName, instructions, ingredients }),
+        body: recipe,
         headers: { 'Content-Type': 'application/json' },
         });
 

@@ -1,22 +1,22 @@
-<form class="update-form m-5">
+<form class="update-form m-5" data-recipe-id={{id}}>
     <div>
         <div class="card text-center m-5 border-0">
             <div class="card-body">
                 <h5 class="headers m-3">Recipe Name:</h5>
-                <textarea class="card-title text-center rounded w-75" rows="1" type="text">{{recipeName}}</textarea>
+                <textarea class="card-title text-center rounded w-75" rows="1" type="text" id="inputRecipeName">{{recipeName}}</textarea>
             </div>
             <ul class="text-center row">              
                 <ol class="text-center col-4">
                     <h5 class="headers">Ingredients:</h5>
                     {{#each ingredients as | ingredient |}}
-                    <textarea class="form-control m-2 text-center" rows="1">{{ingredient}}</textarea>
+                    <textarea class="ingredient form-control m-2 text-center" rows="1">{{ingredient}}</textarea>
                     {{/each}}
                     <input autocomplete="off" class="ingredient input form-control m-2 text-center" rows="1" id="field1" name="prof1" type="text" placeholder="INGREDIENT" data-items="8"/>
                     <button id="b1" class="btn add-more btn-dark" type="submit">+</button>
                 </ol>
                 <div class="col">
                     <h5 class="headers">Instructions:</h5>
-                    <textarea class="form-control text-center rounded" rows="7">{{instructions}}</textarea>
+                    <textarea class="form-control text-center rounded" rows="7" id="inputInstructionsTextArea">{{instructions}}</textarea>
                 </div>
             </ul>
         </div>
@@ -27,6 +27,5 @@
 
 </form>
 
-<script src="/js/createRecipe.js"></script>
 <script src="/js/createingredientbtn.js"></script>
 <script src="/js/updateRecipe.js"></script>
