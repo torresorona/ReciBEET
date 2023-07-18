@@ -19,7 +19,7 @@ When the page loads, you will be greeted by a homepage for both logged in users 
 
 ## Link to Deployed Application
 
-https://recibeet-2.herokuapp.com
+https://recibeet-2d9ca1e028d6.herokuapp.com/
 
 ## Link to Github
 
